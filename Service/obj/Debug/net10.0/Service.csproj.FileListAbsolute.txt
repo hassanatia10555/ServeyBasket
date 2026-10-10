@@ -1,0 +1,12 @@
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Service.deps.json
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Service.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Service.pdb
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.AssemblyInfoInputs.cache
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.AssemblyInfo.cs
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.csproj.CoreCompileInputs.cache
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.sourcelink.json
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\refint\Service.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.pdb
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\ref\Service.dll
