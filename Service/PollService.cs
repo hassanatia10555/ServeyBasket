@@ -14,25 +14,64 @@ namespace Service
         private readonly ILogger<PollService> _logger = logger;
         private readonly IMapper _mapper = mapper;
         private DbSet<Poll> entity => _Context.Set<Poll>();
-        public Task<PollResponse?> GetPollAsync(string id)
+
+        public async Task<PollResponse?> GetPollAsync(string id)
         {
-            throw new NotImplementedException();
+            var poll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (poll is null)
+            {
+                _logger.LogWarning("Poll with id {Id} not found.", id);
+                return null;
+            }
+
+            var response = _mapper.Map<PollResponse>(poll);
+            return response;
         }
-        public Task<IEnumerable<PollResponse>> ListPollsAsync()
+
+        public async Task<IEnumerable<PollResponse>> ListPollsAsync()
         {
-            throw new NotImplementedException();
+            var polls = await entity.AsNoTracking().ToListAsync();
+            return _mapper.Map<IEnumerable<PollResponse>>(polls);
         }
-        public Task<string> CreatePollAsync(PollRequest request)
+
+        public async Task<string> CreatePollAsync(PollRequest request)
         {
-            throw new NotImplementedException();
+            var poll = _mapper.Map<Poll>(request);
+
+            poll.Id = Guid.NewGuid().ToString();
+            await entity.AddAsync(poll);
+            await _Context.SaveChangesAsync();
+
+            return poll.Id;
         }
-        public Task UpdatePollAsync(string id, PollRequest request)
+
+        public async Task<PollResponse?> UpdatePollAsync(string id, PollRequest request)
         {
-            throw new NotImplementedException();
+            var poll = await entity.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (poll is null)
+            {
+                _logger.LogWarning("Poll with id {Id} not found.", id);
+                return null;
+            }
+            _mapper.Map(request, poll);
+            _Context.Update(poll);
+            await _Context.SaveChangesAsync();
+            return _mapper.Map<PollResponse>(poll);
         }
-        public Task DeletePollAsync(string id)
+
+        public async Task<bool> DeletePollAsync(string id)
         {
-            throw new NotImplementedException();
+            var poll = await entity.FirstOrDefaultAsync(x => x.Id == id);
+            if (poll is null)
+            {
+                _logger.LogWarning("Poll with id {Id} not found.", id);
+                return false;
+            }
+            entity.Remove(poll);
+            await _Context.SaveChangesAsync();
+            return true;
         }
     }
 }
