@@ -10,3 +10,5 @@ D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Core\obj\Debug\net10.0\Core.dll
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Core\obj\Debug\net10.0\refint\Core.dll
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Core\obj\Debug\net10.0\Core.pdb
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Core\obj\Debug\net10.0\ref\Core.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Core\obj\Debug\net10.0\Core.csproj.AssemblyReference.cache
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Core\obj\Debug\net10.0\Core.csproj.Up2Date

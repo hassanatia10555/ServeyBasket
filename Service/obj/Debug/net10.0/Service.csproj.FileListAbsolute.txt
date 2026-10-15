@@ -10,3 +10,9 @@ D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Servi
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\refint\Service.dll
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.pdb
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\ref\Service.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.csproj.AssemblyReference.cache
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Core.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Infrastructure.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Core.pdb
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\bin\Debug\net10.0\Infrastructure.pdb
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\Service\obj\Debug\net10.0\Service.csproj.Up2Date
