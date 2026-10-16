@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "WebApi.Controllers.PollController",
-    "Method": "Get",
-    "RelativePath": "api/Poll",
+    "ContainingType": "WebApi.Controllers.PollsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Polls",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -10,9 +10,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollController",
-    "Method": "Post",
-    "RelativePath": "api/Poll",
+    "ContainingType": "WebApi.Controllers.PollsController",
+    "Method": "Create",
+    "RelativePath": "api/Polls",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -26,9 +26,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollController",
+    "ContainingType": "WebApi.Controllers.PollsController",
     "Method": "Get",
-    "RelativePath": "api/Poll/{id}",
+    "RelativePath": "api/Polls/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -42,9 +42,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollController",
-    "Method": "Put",
-    "RelativePath": "api/Poll/{id}",
+    "ContainingType": "WebApi.Controllers.PollsController",
+    "Method": "Update",
+    "RelativePath": "api/Polls/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -63,10 +63,26 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollController",
+    "ContainingType": "WebApi.Controllers.PollsController",
     "Method": "Delete",
-    "RelativePath": "api/Poll/{id}",
+    "RelativePath": "api/Polls/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.PollsController",
+    "Method": "TogglePublishStatus",
+    "RelativePath": "api/Polls/{id}/TogglePublish",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

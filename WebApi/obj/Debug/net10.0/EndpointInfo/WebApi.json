@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Poll/{id}": {
+    "/api/Polls/{id}": {
       "get": {
         "tags": [
-          "Poll"
+          "Polls"
         ],
         "parameters": [
           {
@@ -28,7 +28,7 @@
       },
       "put": {
         "tags": [
-          "Poll"
+          "Polls"
         ],
         "parameters": [
           {
@@ -67,7 +67,7 @@
       },
       "delete": {
         "tags": [
-          "Poll"
+          "Polls"
         ],
         "parameters": [
           {
@@ -86,10 +86,10 @@
         }
       }
     },
-    "/api/Poll": {
+    "/api/Polls": {
       "get": {
         "tags": [
-          "Poll"
+          "Polls"
         ],
         "responses": {
           "200": {
@@ -99,7 +99,7 @@
       },
       "post": {
         "tags": [
-          "Poll"
+          "Polls"
         ],
         "requestBody": {
           "content": {
@@ -126,6 +126,28 @@
           }
         }
       }
+    },
+    "/api/Polls/{id}/TogglePublish": {
+      "put": {
+        "tags": [
+          "Polls"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -137,8 +159,22 @@
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "summary": {
             "type": "string",
+            "nullable": true
+          },
+          "startsAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endsAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isPublished": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -148,7 +184,7 @@
   },
   "tags": [
     {
-      "name": "Poll"
+      "name": "Polls"
     }
   ]
 }
