@@ -177,7 +177,10 @@ D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Servic
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Core.pdb
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Infrastructure.pdb
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Service.pdb
-D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\Users\hassan\Desktop\My\Projects\SurveyBasket\WebApi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

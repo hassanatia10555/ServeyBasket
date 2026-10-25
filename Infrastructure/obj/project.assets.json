@@ -115,6 +115,71 @@
           "lib/net10.0/Mapster.DependencyInjection.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.19.2"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Cryptography.Internal/10.0.13": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.13",
+          "Microsoft.Extensions.Identity.Stores": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
         "type": "package",
         "compile": {
@@ -126,6 +191,22 @@
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Microsoft.Bcl.Cryptography/10.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Microsoft.Bcl.Cryptography.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Bcl.Cryptography.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Build.Framework/18.0.2": {
@@ -715,6 +796,26 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Configuration/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.13",
+          "Microsoft.Extensions.Primitives": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/10.0.13": {
         "type": "package",
         "dependencies": {
@@ -732,6 +833,26 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.13",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.0/Microsoft.Extensions.Configuration.Binder.targets": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/10.0.13": {
@@ -783,6 +904,84 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.13",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "10.0.13",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.Abstractions/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.13",
+          "Microsoft.Extensions.Options": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Identity.Core/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "10.0.13",
+          "Microsoft.Extensions.Diagnostics": "10.0.13",
+          "Microsoft.Extensions.Logging": "10.0.13",
+          "Microsoft.Extensions.Options": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Identity.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Identity.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Identity.Stores/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "10.0.13",
+          "Microsoft.Extensions.Identity.Core": "10.0.13",
+          "Microsoft.Extensions.Logging": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Logging/10.0.13": {
@@ -843,6 +1042,29 @@
         },
         "build": {
           "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/10.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.13",
+          "Microsoft.Extensions.Configuration.Binder": "10.0.13",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.13",
+          "Microsoft.Extensions.Options": "10.0.13",
+          "Microsoft.Extensions.Primitives": "10.0.13"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.Primitives/10.0.13": {
@@ -949,96 +1171,98 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Abstractions/8.14.0": {
+      "Microsoft.IdentityModel.Abstractions/8.19.2": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.IdentityModel.Abstractions.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.IdentityModel.Abstractions.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Abstractions.dll": {
             "related": ".xml"
           }
         }
       },
-      "Microsoft.IdentityModel.JsonWebTokens/7.7.1": {
+      "Microsoft.IdentityModel.JsonWebTokens/8.19.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "7.7.1"
+          "Microsoft.IdentityModel.Tokens": "8.19.2"
         },
         "compile": {
-          "lib/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
             "related": ".xml"
           }
         }
       },
-      "Microsoft.IdentityModel.Logging/7.7.1": {
+      "Microsoft.IdentityModel.Logging/8.19.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "7.7.1"
+          "Microsoft.IdentityModel.Abstractions": "8.19.2"
         },
         "compile": {
-          "lib/net8.0/Microsoft.IdentityModel.Logging.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Logging.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.IdentityModel.Logging.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Logging.dll": {
             "related": ".xml"
           }
         }
       },
-      "Microsoft.IdentityModel.Protocols/7.7.1": {
+      "Microsoft.IdentityModel.Protocols/8.19.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "7.7.1"
+          "Microsoft.IdentityModel.Tokens": "8.19.2"
         },
         "compile": {
-          "lib/net8.0/Microsoft.IdentityModel.Protocols.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Protocols.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.IdentityModel.Protocols.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Protocols.dll": {
             "related": ".xml"
           }
         }
       },
-      "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.7.1": {
+      "Microsoft.IdentityModel.Protocols.OpenIdConnect/8.19.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Protocols": "7.7.1",
-          "System.IdentityModel.Tokens.Jwt": "7.7.1"
+          "Microsoft.IdentityModel.Protocols": "8.19.2",
+          "System.IdentityModel.Tokens.Jwt": "8.19.2"
         },
         "compile": {
-          "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
             "related": ".xml"
           }
         }
       },
-      "Microsoft.IdentityModel.Tokens/7.7.1": {
+      "Microsoft.IdentityModel.Tokens/8.19.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "7.7.1"
+          "Microsoft.Bcl.Cryptography": "10.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.IdentityModel.Logging": "8.19.2"
         },
         "compile": {
-          "lib/net8.0/Microsoft.IdentityModel.Tokens.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Tokens.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.IdentityModel.Tokens.dll": {
+          "lib/net10.0/Microsoft.IdentityModel.Tokens.dll": {
             "related": ".xml"
           }
         }
@@ -1313,19 +1537,19 @@
           }
         }
       },
-      "System.IdentityModel.Tokens.Jwt/7.7.1": {
+      "System.IdentityModel.Tokens.Jwt/8.19.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "7.7.1",
-          "Microsoft.IdentityModel.Tokens": "7.7.1"
+          "Microsoft.IdentityModel.JsonWebTokens": "8.19.2",
+          "Microsoft.IdentityModel.Tokens": "8.19.2"
         },
         "compile": {
-          "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
+          "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
+          "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll": {
             "related": ".xml"
           }
         }
@@ -1391,6 +1615,8 @@
           "FluentValidation.DependencyInjectionExtensions": "12.2.0",
           "Mapster": "10.0.13",
           "Mapster.DependencyInjection": "10.0.13",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.13",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.13",
           "SharpGrip.FluentValidation.AutoValidation.Mvc": "2.0.0"
         },
         "compile": {
@@ -1536,6 +1762,76 @@
         "mapster.dependencyinjection.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.13": {
+      "sha512": "cEPhQWsaUKymSdQ+NB2rF4GnWtjofAcRrzr2aGPzbjSFyeDtIlBzrbX1Qeh/OAHjvdwBe05SbsukoSbz27AD6g==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.10.0.13.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Cryptography.Internal/10.0.13": {
+      "sha512": "INZVBMOPbQC5xj1oTpwhELtokdH9LcY7oCsTVDEavziMpsoGJJPejax5WdFNfPeTMGq9eT6fL8GcVHeobvqORA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.cryptography.internal/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "microsoft.aspnetcore.cryptography.internal.10.0.13.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.internal.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/10.0.13": {
+      "sha512": "mt935Uji4EdglTPrgJrqHdXkWM2EI6d7V8fEfvlC+KevB16MtHUHGiaKycawlOJgbOMw1D9etbHIfLL2nnWV4Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/net462/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "microsoft.aspnetcore.cryptography.keyderivation.10.0.13.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.13": {
+      "sha512": "c6984ahCnqc3zqYgl5KqrBoY+LMKqJW6nZcFdBYNyp3PAA67prA/IgjQ/ySV0t3lEL2LEz3bcx91fbUYr8bRPA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
+        "microsoft.aspnetcore.identity.entityframeworkcore.10.0.13.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
       "sha512": "3WA9q9yVqJp222P3x1wYIGDAkpjAku0TMUaaQV22g6L67AI0LdOIrVS7Ht2vJfLHGSPVuqN94vIr15qn+HEkHw==",
       "type": "package",
@@ -1557,6 +1853,37 @@
         "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
         "microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
         "microsoft.bcl.asyncinterfaces.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Bcl.Cryptography/10.0.2": {
+      "sha512": "LG9Yll3B5aNpxv0+D47g6LiOiKBIlodhcHdQwcYzo8VeexFLGqx5ymetmA2aBRyo9cCcWsQWrFsdbsr8LvmWDw==",
+      "type": "package",
+      "path": "microsoft.bcl.cryptography/10.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Bcl.Cryptography.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Bcl.Cryptography.targets",
+        "lib/net10.0/Microsoft.Bcl.Cryptography.dll",
+        "lib/net10.0/Microsoft.Bcl.Cryptography.xml",
+        "lib/net462/Microsoft.Bcl.Cryptography.dll",
+        "lib/net462/Microsoft.Bcl.Cryptography.xml",
+        "lib/net8.0/Microsoft.Bcl.Cryptography.dll",
+        "lib/net8.0/Microsoft.Bcl.Cryptography.xml",
+        "lib/net9.0/Microsoft.Bcl.Cryptography.dll",
+        "lib/net9.0/Microsoft.Bcl.Cryptography.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.Cryptography.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.Cryptography.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.Cryptography.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.Cryptography.xml",
+        "microsoft.bcl.cryptography.10.0.2.nupkg.sha512",
+        "microsoft.bcl.cryptography.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -2907,6 +3234,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Extensions.Configuration/10.0.13": {
+      "sha512": "inhujYI/nikhmLxYI6ZEcaCgZ28ipJsKMPPxxr2XWf3vM0Q2P+E9R3hDHABZOLBxzD3gjpgcbSH/+hd2+gvI2A==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Configuration.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Configuration.targets",
+        "lib/net10.0/Microsoft.Extensions.Configuration.dll",
+        "lib/net10.0/Microsoft.Extensions.Configuration.xml",
+        "lib/net462/Microsoft.Extensions.Configuration.dll",
+        "lib/net462/Microsoft.Extensions.Configuration.xml",
+        "lib/net8.0/Microsoft.Extensions.Configuration.dll",
+        "lib/net8.0/Microsoft.Extensions.Configuration.xml",
+        "lib/net9.0/Microsoft.Extensions.Configuration.dll",
+        "lib/net9.0/Microsoft.Extensions.Configuration.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.10.0.13.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Microsoft.Extensions.Configuration.Abstractions/10.0.13": {
       "sha512": "DY4C2qzTt2lOIY3VoscBH/TCwTolI5DKOfgJLuI+k1QUvRNT5vTMS58AOerNiihdVRStO0wEpLeRWA8jytzHBQ==",
       "type": "package",
@@ -2933,6 +3289,46 @@
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "microsoft.extensions.configuration.abstractions.10.0.13.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Binder/10.0.13": {
+      "sha512": "yJJl/b0+W+GEWbu+7viw6C3h2BoNkB69Vlz7s/4e+hm4mYbJqfhdcDSi9sCXJw47blsBaiQd3UDPgDtop92+ug==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.binder/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/cs/Microsoft.Extensions.Configuration.Binder.SourceGeneration.dll",
+        "analyzers/dotnet/cs/cs/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/de/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/es/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/fr/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/it/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/ja/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/ko/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/pl/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/ru/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/tr/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/zh-Hans/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/zh-Hant/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "buildTransitive/netstandard2.0/Microsoft.Extensions.Configuration.Binder.targets",
+        "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net10.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net462/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net462/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net8.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "microsoft.extensions.configuration.binder.10.0.13.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -3025,6 +3421,100 @@
         "microsoft.extensions.dependencymodel.10.0.13.nupkg.sha512",
         "microsoft.extensions.dependencymodel.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics/10.0.13": {
+      "sha512": "J9ODOrffj1mK3Et69elNsLGRguesPxvThTdVpFmQX7fLNPhIOgqHQfLdGnTBEwNAV3yf8yiyVlpDZNw2qN87Nw==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Diagnostics.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Diagnostics.targets",
+        "lib/net10.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net10.0/Microsoft.Extensions.Diagnostics.xml",
+        "lib/net462/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net462/Microsoft.Extensions.Diagnostics.xml",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.xml",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.xml",
+        "microsoft.extensions.diagnostics.10.0.13.nupkg.sha512",
+        "microsoft.extensions.diagnostics.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics.Abstractions/10.0.13": {
+      "sha512": "oZzqZze8ed1fLS20HtIrkPxQXGRG/koq09srIw2ptnDHm9RHfwB++d35hosB/cXc55TH7Pshv85O0txongjCIg==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics.abstractions/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Diagnostics.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Diagnostics.Abstractions.targets",
+        "lib/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net462/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "microsoft.extensions.diagnostics.abstractions.10.0.13.nupkg.sha512",
+        "microsoft.extensions.diagnostics.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Identity.Core/10.0.13": {
+      "sha512": "76aNRvI7HU9sYjevIlpFuT/VyspRoiREwOZI+RFXM/HRJ3v6nC7gxSZoX881FEBkF+0udKHuFxtsWbRLytqsSA==",
+      "type": "package",
+      "path": "microsoft.extensions.identity.core/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.Extensions.Identity.Core.dll",
+        "lib/net10.0/Microsoft.Extensions.Identity.Core.xml",
+        "lib/net462/Microsoft.Extensions.Identity.Core.dll",
+        "lib/net462/Microsoft.Extensions.Identity.Core.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.xml",
+        "microsoft.extensions.identity.core.10.0.13.nupkg.sha512",
+        "microsoft.extensions.identity.core.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Identity.Stores/10.0.13": {
+      "sha512": "qNZr9maHa2Kg7mRh+hLEJ59ts2OfYMiJJ5GVjx8BDrmhPxx/V345CTdIrUcZ5FZwwHepITsZY0e9qss7NB2U5A==",
+      "type": "package",
+      "path": "microsoft.extensions.identity.stores/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.Extensions.Identity.Stores.dll",
+        "lib/net10.0/Microsoft.Extensions.Identity.Stores.xml",
+        "lib/net462/Microsoft.Extensions.Identity.Stores.dll",
+        "lib/net462/Microsoft.Extensions.Identity.Stores.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
+        "microsoft.extensions.identity.stores.10.0.13.nupkg.sha512",
+        "microsoft.extensions.identity.stores.nuspec"
       ]
     },
     "Microsoft.Extensions.Logging/10.0.13": {
@@ -3176,6 +3666,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/10.0.13": {
+      "sha512": "xVO5HhATc09WXuS/RaDmx8ZeWS0mTpT1L0tkEDMSBHtAnNpNsDr0ge0wIO2jinCWWqpq5dL1tRTzpYNVlvyqLw==",
+      "type": "package",
+      "path": "microsoft.extensions.options.configurationextensions/10.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Options.ConfigurationExtensions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Options.ConfigurationExtensions.targets",
+        "lib/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net462/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net462/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "microsoft.extensions.options.configurationextensions.10.0.13.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Microsoft.Extensions.Primitives/10.0.13": {
       "sha512": "ZjTwxzhiw2TMEzIbUDkMF0dfDB2I4NQgIfKD0ELu9/5Mk+SRGdKZcD0/lvBrRCAPo6KN2r0BW86MRancoyJkoA==",
       "type": "package",
@@ -3285,14 +3804,16 @@
         "runtimes/win-x86/native/msalruntime_x86.dll"
       ]
     },
-    "Microsoft.IdentityModel.Abstractions/8.14.0": {
-      "sha512": "iwbCpSjD3ehfTwBhtSNEtKPK0ICun6ov7Ibx6ISNA9bfwIyzI2Siwyi9eJFCJBwxowK9xcA1mj+jBWiigeqgcQ==",
+    "Microsoft.IdentityModel.Abstractions/8.19.2": {
+      "sha512": "HJbo/lnSfNHUfphPRT910poQc4T2/9+8svFLvzuaYHGAOJ2Tu+oEDqpX0BVP3BJ4OuUM1kylEKyaiX2fCAK3Cw==",
       "type": "package",
-      "path": "microsoft.identitymodel.abstractions/8.14.0",
+      "path": "microsoft.identitymodel.abstractions/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Abstractions.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net462/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net462/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net472/Microsoft.IdentityModel.Abstractions.dll",
@@ -3305,19 +3826,20 @@
         "lib/net9.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.xml",
-        "microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+        "microsoft.identitymodel.abstractions.8.19.2.nupkg.sha512",
         "microsoft.identitymodel.abstractions.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.JsonWebTokens/7.7.1": {
-      "sha512": "3Izi75UCUssvo8LPx3OVnEeZay58qaFicrtSnbtUt7q8qQi0gy46gh4V8VUTkMVMKXV6VMyjBVmeNNgeCUJuIw==",
+    "Microsoft.IdentityModel.JsonWebTokens/8.19.2": {
+      "sha512": "ui3fuBT4fs8kdKfBthI4NzLYIBIneEVS8UrL1JVBzAn80UiKmngBBi0BEByE7n/9c+EElcfFlCMFFTqpkBSLNA==",
       "type": "package",
-      "path": "microsoft.identitymodel.jsonwebtokens/7.7.1",
+      "path": "microsoft.identitymodel.jsonwebtokens/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/Microsoft.IdentityModel.JsonWebTokens.dll",
-        "lib/net461/Microsoft.IdentityModel.JsonWebTokens.xml",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/net10.0/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net462/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/net462/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net472/Microsoft.IdentityModel.JsonWebTokens.dll",
@@ -3326,21 +3848,24 @@
         "lib/net6.0/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/net8.0/Microsoft.IdentityModel.JsonWebTokens.xml",
+        "lib/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/net9.0/Microsoft.IdentityModel.JsonWebTokens.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.xml",
-        "microsoft.identitymodel.jsonwebtokens.7.7.1.nupkg.sha512",
+        "microsoft.identitymodel.jsonwebtokens.8.19.2.nupkg.sha512",
         "microsoft.identitymodel.jsonwebtokens.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Logging/7.7.1": {
-      "sha512": "BZNgSq/o8gsKExdYoBKPR65fdsxW0cTF8PsdqB8y011AGUJJW300S/ZIsEUD0+sOmGc003Gwv3FYbjrVjvsLNQ==",
+    "Microsoft.IdentityModel.Logging/8.19.2": {
+      "sha512": "r5YLDIxGOnkVJHrqXv/iD1FM1CgGrQOdriXuvuWvTPmKbnGANhEysq9XKmN6IHjf2a+9bAGEpnoRBsAQlvJU5w==",
       "type": "package",
-      "path": "microsoft.identitymodel.logging/7.7.1",
+      "path": "microsoft.identitymodel.logging/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/Microsoft.IdentityModel.Logging.dll",
-        "lib/net461/Microsoft.IdentityModel.Logging.xml",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Logging.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Logging.xml",
         "lib/net462/Microsoft.IdentityModel.Logging.dll",
         "lib/net462/Microsoft.IdentityModel.Logging.xml",
         "lib/net472/Microsoft.IdentityModel.Logging.dll",
@@ -3349,21 +3874,24 @@
         "lib/net6.0/Microsoft.IdentityModel.Logging.xml",
         "lib/net8.0/Microsoft.IdentityModel.Logging.dll",
         "lib/net8.0/Microsoft.IdentityModel.Logging.xml",
+        "lib/net9.0/Microsoft.IdentityModel.Logging.dll",
+        "lib/net9.0/Microsoft.IdentityModel.Logging.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Logging.xml",
-        "microsoft.identitymodel.logging.7.7.1.nupkg.sha512",
+        "microsoft.identitymodel.logging.8.19.2.nupkg.sha512",
         "microsoft.identitymodel.logging.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Protocols/7.7.1": {
-      "sha512": "h+fHHBGokepmCX+QZXJk4Ij8OApCb2n2ktoDkNX5CXteXsOxTHMNgjPGpAwdJMFvAL7TtGarUnk3o97NmBq2QQ==",
+    "Microsoft.IdentityModel.Protocols/8.19.2": {
+      "sha512": "sGxSsSrZXNmca6D+jHH2rVRyo2nNRd/g4H9CFbPmLLq0xgoH1U0orLWE5minfijw7+zq49tBs7txenbfAErRoQ==",
       "type": "package",
-      "path": "microsoft.identitymodel.protocols/7.7.1",
+      "path": "microsoft.identitymodel.protocols/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/Microsoft.IdentityModel.Protocols.dll",
-        "lib/net461/Microsoft.IdentityModel.Protocols.xml",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Protocols.xml",
         "lib/net462/Microsoft.IdentityModel.Protocols.dll",
         "lib/net462/Microsoft.IdentityModel.Protocols.xml",
         "lib/net472/Microsoft.IdentityModel.Protocols.dll",
@@ -3372,21 +3900,24 @@
         "lib/net6.0/Microsoft.IdentityModel.Protocols.xml",
         "lib/net8.0/Microsoft.IdentityModel.Protocols.dll",
         "lib/net8.0/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net9.0/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net9.0/Microsoft.IdentityModel.Protocols.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.xml",
-        "microsoft.identitymodel.protocols.7.7.1.nupkg.sha512",
+        "microsoft.identitymodel.protocols.8.19.2.nupkg.sha512",
         "microsoft.identitymodel.protocols.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.7.1": {
-      "sha512": "yT2Hdj8LpPbcT9C9KlLVxXl09C8zjFaVSaApdOwuecMuoV4s6Sof/mnTDz/+F/lILPIBvrWugR9CC7iRVZgbfQ==",
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/8.19.2": {
+      "sha512": "1XOcyY36cVymzE3qKdzKaUEZ4Pzt7ZpSa14JZoPPK1NLFUkQDs85TCqpV6XDo0YjFXj6nVK00AfOHppjghjhtw==",
       "type": "package",
-      "path": "microsoft.identitymodel.protocols.openidconnect/7.7.1",
+      "path": "microsoft.identitymodel.protocols.openidconnect/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
-        "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net462/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/net462/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net472/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
@@ -3395,21 +3926,24 @@
         "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
-        "microsoft.identitymodel.protocols.openidconnect.7.7.1.nupkg.sha512",
+        "microsoft.identitymodel.protocols.openidconnect.8.19.2.nupkg.sha512",
         "microsoft.identitymodel.protocols.openidconnect.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Tokens/7.7.1": {
-      "sha512": "fQ0VVCba75lknUHGldi3iTKAYUQqbzp1Un8+d9cm9nON0Gs8NAkXddNg8iaUB0qi/ybtAmNWizTR4avdkCJ9pQ==",
+    "Microsoft.IdentityModel.Tokens/8.19.2": {
+      "sha512": "GtPC1S02uH1gOO4fQ+zRysIicKmEXaYFP8PIkdJYXqMyruYhopre4ozVHp0XiDSA0+GJvOZH9prxCPvgBMg4Ww==",
       "type": "package",
-      "path": "microsoft.identitymodel.tokens/7.7.1",
+      "path": "microsoft.identitymodel.tokens/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/Microsoft.IdentityModel.Tokens.dll",
-        "lib/net461/Microsoft.IdentityModel.Tokens.xml",
+        "README.md",
+        "lib/net10.0/Microsoft.IdentityModel.Tokens.dll",
+        "lib/net10.0/Microsoft.IdentityModel.Tokens.xml",
         "lib/net462/Microsoft.IdentityModel.Tokens.dll",
         "lib/net462/Microsoft.IdentityModel.Tokens.xml",
         "lib/net472/Microsoft.IdentityModel.Tokens.dll",
@@ -3418,9 +3952,11 @@
         "lib/net6.0/Microsoft.IdentityModel.Tokens.xml",
         "lib/net8.0/Microsoft.IdentityModel.Tokens.dll",
         "lib/net8.0/Microsoft.IdentityModel.Tokens.xml",
+        "lib/net9.0/Microsoft.IdentityModel.Tokens.dll",
+        "lib/net9.0/Microsoft.IdentityModel.Tokens.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.xml",
-        "microsoft.identitymodel.tokens.7.7.1.nupkg.sha512",
+        "microsoft.identitymodel.tokens.8.19.2.nupkg.sha512",
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
@@ -3806,15 +4342,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.IdentityModel.Tokens.Jwt/7.7.1": {
-      "sha512": "rQkO1YbAjLwnDJSMpRhRtrc6XwIcEOcUvoEcge+evurpzSZM3UNK+MZfD3sKyTlYsvknZ6eJjSBfnmXqwOsT9Q==",
+    "System.IdentityModel.Tokens.Jwt/8.19.2": {
+      "sha512": "gqhDC/icByKEutygpr+OFgAmjwTVowyzFjWB8K0q1ww8uFj5a1BQNL+QvijUl9uhq4p8OdDwcAIrjVC+eC9FVA==",
       "type": "package",
-      "path": "system.identitymodel.tokens.jwt/7.7.1",
+      "path": "system.identitymodel.tokens.jwt/8.19.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net461/System.IdentityModel.Tokens.Jwt.dll",
-        "lib/net461/System.IdentityModel.Tokens.Jwt.xml",
+        "README.md",
+        "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net10.0/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net462/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net462/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net472/System.IdentityModel.Tokens.Jwt.dll",
@@ -3823,9 +4360,11 @@
         "lib/net6.0/System.IdentityModel.Tokens.Jwt.xml",
         "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net8.0/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net9.0/System.IdentityModel.Tokens.Jwt.xml",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
-        "system.identitymodel.tokens.jwt.7.7.1.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
@@ -3937,6 +4476,8 @@
       "Core >= 1.0.0",
       "Mapster >= 10.0.13",
       "Mapster.DependencyInjection >= 10.0.13",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.13",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.13",
       "Microsoft.EntityFrameworkCore >= 10.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.13",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.13",
@@ -4003,6 +4544,14 @@
             "version": "[10.0.13, )"
           },
           "Mapster.DependencyInjection": {
+            "target": "Package",
+            "version": "[10.0.13, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[10.0.13, )"
+          },
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[10.0.13, )"
           },

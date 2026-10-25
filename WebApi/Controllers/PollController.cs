@@ -1,4 +1,5 @@
 ﻿using Core.Contracts.Poll;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.ServiceInterfaces;
@@ -7,6 +8,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PollsController(IPollService pollService) : ControllerBase
     {
         private readonly IPollService _pollService = pollService;
