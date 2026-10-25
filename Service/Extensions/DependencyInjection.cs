@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Service.Extensions
         public static IServiceCollection AddServiceContracts(this IServiceCollection services)
         {
             services.AddScoped<IPollService, PollService>();
+            services.AddScoped<IAuthService, AuthService>();
             return services;
         }
     }

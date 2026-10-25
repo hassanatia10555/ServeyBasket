@@ -1,4 +1,5 @@
-﻿using Core.Contracts.Poll;
+﻿using Core.Contracts.Auth.Register;
+using Core.Contracts.Poll;
 
 namespace Core.Mapping
 {
@@ -6,6 +7,8 @@ namespace Core.Mapping
     {
         public void Register(TypeAdapterConfig config)
         {
+            // Poll
+
             config.NewConfig<PollRequest, Poll>()
                 .Map(dest => dest.Title, src => src.Title)
                 .Map(dest => dest.Summary, src => src.Summary)
@@ -21,7 +24,12 @@ namespace Core.Mapping
                 .Map(dest => dest.StartsAt, src => src.StartsAt)
                 .Map(dest => dest.EndsAt, src => src.EndsAt)
                 .Map(dest => dest.IsPublished, src => src.IsPublished);
-                
+
+            // Application User
+
+            config.NewConfig<RegisterRequest, ApplicationUser>()
+                .Map(dest=>dest.UserName , src => src.Email)
+                .TwoWays();                
         }
     }
 }

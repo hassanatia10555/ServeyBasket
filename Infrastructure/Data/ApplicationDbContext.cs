@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-
-namespace Infrastructure.Data
+﻿namespace Infrastructure.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) 
             :base(dbContextOptions)

@@ -1,7 +1,4 @@
-﻿
-using Core.Contracts.Poll;
-
-namespace Core.Validation.Poll;
+﻿namespace Core.Contracts.Poll;
 
 public class PollRequestValidator : AbstractValidator<PollRequest>
 {

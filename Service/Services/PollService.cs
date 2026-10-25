@@ -4,7 +4,7 @@ using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Service
+namespace Service.Services
 {
     public class PollService(ApplicationDbContext applicationDbContext
                             , ILogger<PollService> logger
