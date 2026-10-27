@@ -1,10 +1,11 @@
 ﻿using Core.Contracts.Auth.Login;
+using Core.Contracts.Auth.RefreshToken;
 using Core.Contracts.Auth.Register;
+using Core.Interfaces.Auth;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
-using Service.ServiceInterfaces;
 
 namespace WebApi.Controllers
 {
@@ -35,6 +36,30 @@ namespace WebApi.Controllers
 
             if (id is not null)
                 return Created();
+            return BadRequest("Pleas enter valid information !..");
+        }
+
+        [HttpPut]
+        [Route("get-refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
+        {
+            var result = await _authService.GetRefreshTekenAsync(request , cancellationToken);
+
+            if (result is not null)
+                return Ok(result);
+
+            return BadRequest("Pleas enter valid information !..");
+        }
+
+        [HttpPut]
+        [Route("revoke-refresh-token")]
+        public async Task<IActionResult> RevokeRefreshToken([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
+        {
+            var result = await _authService.RevokeRefreshTokenAsync(request , cancellationToken);
+
+            if (result)
+                return Ok("Refresh Token Revoked ");
+
             return BadRequest("Pleas enter valid information !..");
         }
     }

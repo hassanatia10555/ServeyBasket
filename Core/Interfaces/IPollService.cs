@@ -1,4 +1,5 @@
-﻿
+﻿using Core.Contracts.Poll;
+
 namespace Service.ServiceInterfaces
 {
     public interface IPollService 
