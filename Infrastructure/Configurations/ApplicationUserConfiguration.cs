@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Infrastructure.Configurations
 {
-    public class ApplicationUserConfig : IEntityTypeConfiguration<ApplicationUser>
+    public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {

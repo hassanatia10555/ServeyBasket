@@ -1,7 +1,10 @@
 ﻿using Core.Contracts.JwtOptions;
+using Core.Interfaces;
 using Core.Interfaces.Auth;
 using Infrastructure.Authentication;
+using Infrastructure.DbInterceptor;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -22,15 +25,25 @@ namespace Infrastructure.Extensions
         private static IServiceCollection AddServicesLifeTime(this IServiceCollection services)
         {
             services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+
+            services.AddHttpContextAccessor();
+
+            services.AddScoped<ICurrentUserService,
+                CurrentUserService>();
+
+            services.AddScoped<AuditInterceptor>();
+
             return services;
         }
-        public static IServiceCollection AddApplicationDbContext(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddApplicationDbContext(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
-                        .EnableSensitiveDataLogging()
-                        .LogTo(Console.WriteLine, LogLevel.Information);
+                options.UseSqlServer(
+                    configuration.GetConnectionString("DefaultConnection"));
+
+                options.AddInterceptors(
+                    sp.GetRequiredService<AuditInterceptor>());
             });
 
             return services;

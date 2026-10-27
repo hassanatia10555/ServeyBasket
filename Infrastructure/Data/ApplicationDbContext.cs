@@ -1,15 +1,17 @@
-﻿namespace Infrastructure.Data
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens.Experimental;
+using System.Security.Claims;
+
+namespace Infrastructure.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions)
+                                     : IdentityDbContext<ApplicationUser>(dbContextOptions)                                     
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) 
-            :base(dbContextOptions)
-        {            
-        }
-        public  DbSet<Poll> Polls { get; set; }
+        public DbSet<Poll> Polls { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
             base.OnModelCreating(modelBuilder);
         }
     }

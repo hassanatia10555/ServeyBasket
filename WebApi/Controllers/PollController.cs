@@ -51,7 +51,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromRoute]string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.DeletePollAsync(id, cancellationToken);
             if (!result)

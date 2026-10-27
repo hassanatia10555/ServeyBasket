@@ -14,7 +14,6 @@ namespace Core.Mapping
                 .Map(dest => dest.Summary, src => src.Summary)
                 .Map(dest => dest.StartsAt, src => src.StartsAt)
                 .Map(dest => dest.EndsAt, src => src.EndsAt)
-                .Map(dest => dest.IsPublished, src => src.IsPublished ?? false)
                 .TwoWays();
 
             config.NewConfig<Poll, PollResponse>()
@@ -24,6 +23,10 @@ namespace Core.Mapping
                 .Map(dest => dest.StartsAt, src => src.StartsAt)
                 .Map(dest => dest.EndsAt, src => src.EndsAt)
                 .Map(dest => dest.IsPublished, src => src.IsPublished);
+                //.Map(dest => dest.CreatedBy, src => src.CreatedById)
+                //.Map(dest => dest.UpdatedBy, src => src.UpdatedById)
+                //.Map(dest => dest.CreatedOn, src => src.CreatedOn)
+                //.Map(dest => dest.UpdatedOn, src => src.UpdatedOn);
 
             // Application User
 

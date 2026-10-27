@@ -38,12 +38,11 @@ namespace Service.Services
         public async Task<string> CreatePollAsync(PollRequest request, CancellationToken cancellationToken)
         {
             var poll = _mapper.Map<Poll>(request);
-
-            poll.Id = Guid.NewGuid().ToString();
+          
             await entity.AddAsync(poll, cancellationToken);
             await _Context.SaveChangesAsync();
 
-            return poll.Id;
+            return poll.Id.ToString();
         }
 
         public async Task<PollResponse?> UpdatePollAsync(string id, PollRequest request, CancellationToken cancellationToken)
