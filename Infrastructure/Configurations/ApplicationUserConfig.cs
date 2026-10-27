@@ -19,6 +19,24 @@ namespace Infrastructure.Configurations
             builder.Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(256);
+
+            builder
+                .OwnsMany(x => x.RefreshTokens, rt =>
+                {
+                    rt.ToTable("RefreshTokens");
+
+                    rt.WithOwner()
+                      .HasForeignKey("UserId");
+
+                    rt.Property(rt => rt.Token)
+                      .IsRequired()
+                      .HasMaxLength(500);
+
+                    rt.Property(x => x.CreatedAt)
+                      .IsRequired();
+
+                    rt.Property(x => x.RevokedOn);                     
+                });               
         }
     }
 }

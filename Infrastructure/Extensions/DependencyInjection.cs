@@ -1,4 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Core.Contracts.JwtOptions;
+using Core.Interfaces.Auth;
+using Infrastructure.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Infrastructure.Extensions
 {
@@ -9,6 +16,13 @@ namespace Infrastructure.Extensions
 
             services.AddApplicationDbContext(configuration);
             services.AddIdentityServices();
+            services.AddJwtConfig();
+            services.AddServicesLifeTime();
+        }
+        private static IServiceCollection AddServicesLifeTime(this IServiceCollection services)
+        {
+            services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+            return services;
         }
         public static IServiceCollection AddApplicationDbContext(this IServiceCollection services, IConfiguration configuration)
         {
@@ -33,6 +47,49 @@ namespace Infrastructure.Extensions
             })
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
+
+            return services;
+        }
+
+        private static IServiceCollection AddJwtConfig(
+        this IServiceCollection services)
+        {
+            services.AddSingleton<IJwtProvider, JwtProvider>();
+
+            services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme =
+                        JwtBearerDefaults.AuthenticationScheme;
+
+                    options.DefaultChallengeScheme =
+                        JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer();
+
+            services.AddOptions<JwtBearerOptions>(
+                    JwtBearerDefaults.AuthenticationScheme)
+                .Configure<IOptions<JwtOptions>>(
+                    (options, jwtOptionsAccessor) =>
+                    {
+                        var jwtOptions = jwtOptionsAccessor.Value;
+
+                        options.TokenValidationParameters =
+                            new TokenValidationParameters
+                            {
+                                ValidateIssuerSigningKey = true,
+                                IssuerSigningKey = new SymmetricSecurityKey(
+                                    Encoding.UTF8.GetBytes(jwtOptions.Key)),
+
+                                ValidateIssuer = true,
+                                ValidIssuer = jwtOptions.Issuer,
+
+                                ValidateAudience = true,
+                                ValidAudience = jwtOptions.Audience,
+
+                                ValidateLifetime = true
+                            };
+                    });
 
             return services;
         }

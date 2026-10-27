@@ -4,7 +4,6 @@
         string Title,
         string Summary,
         DateTime? StartsAt,
-        DateTime? EndsAt,
-        bool? IsPublished = false
+        DateTime? EndsAt
     );
 }

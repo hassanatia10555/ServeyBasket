@@ -96,6 +96,22 @@
   },
   {
     "ContainingType": "WebApi.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "Auth/get-refresh-token",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Core.Contracts.Auth.RefreshToken.RefreshTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "Auth/login",
     "HttpMethod": "POST",
@@ -121,6 +137,22 @@
       {
         "Name": "request",
         "Type": "Core.Contracts.Auth.Register.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AuthController",
+    "Method": "RevokeRefreshToken",
+    "RelativePath": "Auth/revoke-refresh-token",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Core.Contracts.Auth.RefreshToken.RefreshTokenRequest",
         "IsRequired": true
       }
     ],

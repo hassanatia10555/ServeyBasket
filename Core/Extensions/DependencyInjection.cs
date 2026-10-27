@@ -1,6 +1,6 @@
-﻿using Core.Authentication;
-using Core.Contracts.JwtOptions;
+﻿using Core.Contracts.JwtOptions;
 using Core.Contracts.Poll;
+using Core.Interfaces.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -13,15 +13,12 @@ public static class DependencyInjection
         services.AddValidationServices();
         services.AddMappingServices();
         services.AddJwtOptionsConfig();
-        services.AddJwtConfig();
     }
 
     private static IServiceCollection AddValidationServices(
         this IServiceCollection services)
     {
         services.AddValidatorsFromAssemblyContaining<PollRequestValidator>();
-
-        services.AddSingleton<IValidator<JwtOptions>, JwtOptionsValidator>();
 
         services.AddFluentValidationAutoValidation();
 
@@ -44,6 +41,8 @@ public static class DependencyInjection
     private static IServiceCollection AddJwtOptionsConfig(
         this IServiceCollection services)
     {
+        services.AddSingleton<IValidator<JwtOptions>, JwtOptionsValidator>();
+
         services.AddSingleton<
             IValidateOptions<JwtOptions>,JwtOptionsValidation>();
 
@@ -52,48 +51,5 @@ public static class DependencyInjection
             .ValidateOnStart();
 
         return services;
-    }
-
-    private static IServiceCollection AddJwtConfig(
-        this IServiceCollection services)
-    {
-        services.AddSingleton<IJwtProvider, JwtProvider>();
-
-        services
-            .AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme =
-                    JwtBearerDefaults.AuthenticationScheme;
-
-                options.DefaultChallengeScheme =
-                    JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer();
-
-        services.AddOptions<JwtBearerOptions>(
-                JwtBearerDefaults.AuthenticationScheme)
-            .Configure<IOptions<JwtOptions>>(
-                (options, jwtOptionsAccessor) =>
-                {
-                    var jwtOptions = jwtOptionsAccessor.Value;
-
-                    options.TokenValidationParameters =
-                        new TokenValidationParameters
-                        {
-                            ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = new SymmetricSecurityKey(
-                                Encoding.UTF8.GetBytes(jwtOptions.Key)),
-
-                            ValidateIssuer = true,
-                            ValidIssuer = jwtOptions.Issuer,
-
-                            ValidateAudience = true,
-                            ValidAudience = jwtOptions.Audience,
-
-                            ValidateLifetime = true
-                        };
-                });
-
-        return services;
-    }
+    }    
 }

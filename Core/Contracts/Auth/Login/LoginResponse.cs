@@ -1,11 +1,13 @@
 ﻿namespace Core.Contracts.Auth.Login
 {
     public record LoginResponse(
+        string UserId,
         string Email,
         string Password,
-        string Token,
-        int ExpireOn,
-        string RefrishToken
+        string JwtToken,
+        int JwtExpiration,
+        string RefrishToken,
+        DateTime ExpireOn
         );
 
 }
