@@ -310,10 +310,6 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
-          },
-          "isPublished": {
-            "type": "boolean",
-            "nullable": true
           }
         },
         "additionalProperties": false

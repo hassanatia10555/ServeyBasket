@@ -8,5 +8,9 @@
         DateTime? StartsAt,
         DateTime? EndsAt,
         bool IsPublished
+        //string CreatedBy,
+        //string CreatedOn,
+        //string UpdatedBy,
+        //string UpdatedOn
     );
 }
