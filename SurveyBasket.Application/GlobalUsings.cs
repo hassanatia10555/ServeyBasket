@@ -1,0 +1,17 @@
+﻿global using FluentValidation;
+global using SurveyBasket.Application.Contracts.Auth.Register;
+global using System.Text.RegularExpressions;
+global using SurveyBasket.Application.Abstractions;
+global using Mapster;
+global using MapsterMapper;
+global using Microsoft.Extensions.DependencyInjection;
+global using SurveyBasket.Application.Contracts.Auth.Login;
+global using SurveyBasket.Application.Contracts.Auth.RefreshToken;
+global using Microsoft.EntityFrameworkCore;
+global using SurveyBasket.Application.Contracts.Poll;
+global using SurveyBasket.Application.Interfaces.Auth;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.Extensions.Logging;
+global using SurveyBasket.Application.Interfaces;
+global using SurveyBasket.Application.Services;
+global using SurveyBasket.Domain.Models;
