@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\SurveyBasket.Domain.csproj" />
+    <ProjectReference Include="..\SurveyBasket.Domain\SurveyBasket.Domain.csproj" />
   </ItemGroup>
 
 </Project>

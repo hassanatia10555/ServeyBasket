@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SurveyBasket.Infrastructure",
+    "\\SurveyBasket.Infrastructure\\Options",
+    "\\SurveyBasket.Infrastructure\\Options\\JwtOptions",
+    "\\SurveyBasket.WebApi"
+  ],
+  "SelectedNode": "\\SurveyBasket.Infrastructure\\Options\\JwtOptions\\JwtOptions.cs",
+  "PreviewInSolutionExplorer": false
+}

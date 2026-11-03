@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="D:/Users/hassan/Desktop/My/Projects/SurveyBasket/Core/SurveyBasket.Domain.csproj" />
-  <Project Path="Infrastructure/SurveyBasket.Infrastructure.csproj" />
-  <Project Path="Service/SurveyBasket.Application.csproj" />
-  <Project Path="WebApi/SurveyBasket.WebApi.csproj" />
+  <Project Path="SurveyBasket.Application/SurveyBasket.Application.csproj" />
+  <Project Path="SurveyBasket.Domain/SurveyBasket.Domain.csproj" />
+  <Project Path="SurveyBasket.Infrastructure/SurveyBasket.Infrastructure.csproj" />
+  <Project Path="SurveyBasket.WebApi/SurveyBasket.WebApi.csproj" />
 </Solution>

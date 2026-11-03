@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TjBZ7tbOugw=",
+  "dgSpecHash": "ur8JeJTwdec=",
   "success": true,
-  "projectFilePath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Infrastructure\\SurveyBasket.Infrastructure.csproj",
+  "projectFilePath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Infrastructure\\SurveyBasket.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hassan\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\hassan\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
