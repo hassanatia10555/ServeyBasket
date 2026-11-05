@@ -1,4 +1,6 @@
-﻿namespace SurveyBasket.Application.Extensions
+﻿using SurveyBasket.Application.Errors;
+
+namespace SurveyBasket.Application.Extensions
 {
     public static class DependencyInjection
     {
@@ -11,6 +13,10 @@
         {
             services.AddScoped<IPollService, PollService>();
             services.AddScoped<IAuthService, AuthService>();
+
+            services.AddExceptionHandler<GlobalExeptionHandler>();
+            services.AddProblemDetails();
+
             return services;
         }
         private static IServiceCollection AddMappingServices(

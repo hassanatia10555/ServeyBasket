@@ -34,6 +34,13 @@ namespace SurveyBasket.Application.Services
 
         public async Task<Result<PollResponse>> CreatePollAsync(PollRequest request, CancellationToken cancellationToken)
         {
+            var existingPoll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Title == request.Title, cancellationToken);
+            if (existingPoll is not null)
+            {
+                _logger.LogWarning("Poll with title {Title} already exists.", request.Title);
+                return Result.Failure<PollResponse>(PollErrors.PollAlreadyExists);
+            }
+
             var poll = _mapper.Map<Poll>(request);
 
             await entity.AddAsync(poll, cancellationToken);
@@ -45,10 +52,21 @@ namespace SurveyBasket.Application.Services
         public async Task<Result> UpdatePollAsync(string id, PollRequest request, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            
             if (poll is null)
             {
-                _logger.LogWarning("Poll with id {Id} not found.", id);
+                _logger.LogError("Poll with id {Id} not found.", id);
                 return Result.Failure(error:PollErrors.PollNotFound);
+            }
+           
+            if (poll.Title != request.Title)
+            {
+                var existingPoll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Title == request.Title, cancellationToken);
+                if (existingPoll is not null)
+                {
+                    _logger.LogWarning("Poll with title {Title} already exists.", request.Title);
+                    return Result.Failure(error: PollErrors.PollAlreadyExists);
+                }
             }
             _mapper.Map(request, poll);
             entity.Update(poll);

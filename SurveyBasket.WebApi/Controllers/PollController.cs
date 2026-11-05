@@ -1,4 +1,5 @@
 ﻿using SurveyBasket.Application.Abstractions;
+using SurveyBasket.Application.Errors;
 
 namespace WebApi.Controllers
 {
@@ -32,7 +33,9 @@ namespace WebApi.Controllers
             var result = await _pollService.CreatePollAsync(request, cancellationToken);
             return result.IsSuccess ?
                 CreatedAtAction(nameof(Get), new { id = result.Value.Id }, result.Value)
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.Error == PollErrors.PollNotFound ?
+                     result.ToProblem(StatusCodes.Status404NotFound) :
+                     result.ToProblem(StatusCodes.Status409Conflict);
         }
 
         [HttpPut("{id}")]
@@ -42,7 +45,9 @@ namespace WebApi.Controllers
             
             return result.IsSuccess ?
                 NoContent()
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.Error == PollErrors.PollNotFound ?
+                     result.ToProblem(StatusCodes.Status404NotFound) :
+                     result.ToProblem(StatusCodes.Status409Conflict);
         }
 
         [HttpDelete("{id}")]

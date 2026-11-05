@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SurveyBasket.Domain\SurveyBasket.Domain.csproj" />
-    <ProjectReference Include="..\SurveyBasket.Application\SurveyBasket.Application.csproj" />
+    <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="Repositories\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\SurveyBasket.Domain\SurveyBasket.Domain.csproj" />
+    <ProjectReference Include="..\SurveyBasket.Application\SurveyBasket.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

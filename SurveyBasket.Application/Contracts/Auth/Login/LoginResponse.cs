@@ -9,5 +9,4 @@
         string RefrishToken,
         DateTime ExpireOn
         );
-
 }
