@@ -8,7 +8,7 @@ using SurveyBasket.Infrastructure.Data;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace SurveyBasket.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -46,7 +46,7 @@ namespace Infrastructure.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles", (string)null);
+                    b.ToTable("Roles", "Auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -71,7 +71,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims", (string)null);
+                    b.ToTable("RoleClaims", "Auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -96,7 +96,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", (string)null);
+                    b.ToTable("UserClaims", "Auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -118,7 +118,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.ToTable("UserLogins", "Auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -133,7 +133,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
+                    b.ToTable("UserRoles", "Auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -152,7 +152,31 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", (string)null);
+                    b.ToTable("UserTokens", "Auth");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Answer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("QuestionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("Answers", "dbo");
                 });
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.ApplicationUser", b =>
@@ -228,13 +252,14 @@ namespace Infrastructure.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("Users", "Auth");
                 });
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.Poll", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreatedById")
                         .IsRequired()
@@ -275,7 +300,83 @@ namespace Infrastructure.Migrations
                     b.HasIndex("Title")
                         .IsUnique();
 
-                    b.ToTable("Polls");
+                    b.ToTable("Polls", "dbo");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Question", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("PollId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PollId", "Content")
+                        .IsUnique();
+
+                    b.ToTable("Questions", "dbo");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Vote", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PollId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("SubmittedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PollId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Votes", "dbo");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.VoteAnswer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AnswerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("QuestionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("VoteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnswerId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("VoteId");
+
+                    b.ToTable("VoteAnswers", "dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -329,6 +430,17 @@ namespace Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Answer", b =>
+                {
+                    b.HasOne("SurveyBasket.Domain.Models.Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+                });
+
             modelBuilder.Entity("SurveyBasket.Domain.Models.ApplicationUser", b =>
                 {
                     b.OwnsMany("SurveyBasket.Domain.Models.RefreshToken", "RefreshTokens", b1 =>
@@ -358,13 +470,99 @@ namespace Infrastructure.Migrations
 
                             b1.HasKey("UserId", "Id");
 
-                            b1.ToTable("RefreshTokens", (string)null);
+                            b1.ToTable("RefreshTokens", "Auth");
 
                             b1.WithOwner()
                                 .HasForeignKey("UserId");
                         });
 
                     b.Navigation("RefreshTokens");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Question", b =>
+                {
+                    b.HasOne("SurveyBasket.Domain.Models.Poll", "Poll")
+                        .WithMany("Questions")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Vote", b =>
+                {
+                    b.HasOne("SurveyBasket.Domain.Models.Poll", "Poll")
+                        .WithMany("Votes")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SurveyBasket.Domain.Models.ApplicationUser", "User")
+                        .WithMany("Votes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Poll");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.VoteAnswer", b =>
+                {
+                    b.HasOne("SurveyBasket.Domain.Models.Answer", "Answer")
+                        .WithMany("VoteAnswers")
+                        .HasForeignKey("AnswerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SurveyBasket.Domain.Models.Question", "Question")
+                        .WithMany("VoteAnswers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SurveyBasket.Domain.Models.Vote", "Vote")
+                        .WithMany("VoteAnswers")
+                        .HasForeignKey("VoteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Answer");
+
+                    b.Navigation("Question");
+
+                    b.Navigation("Vote");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Answer", b =>
+                {
+                    b.Navigation("VoteAnswers");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Votes");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Poll", b =>
+                {
+                    b.Navigation("Questions");
+
+                    b.Navigation("Votes");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Question", b =>
+                {
+                    b.Navigation("Answers");
+
+                    b.Navigation("VoteAnswers");
+                });
+
+            modelBuilder.Entity("SurveyBasket.Domain.Models.Vote", b =>
+                {
+                    b.Navigation("VoteAnswers");
                 });
 #pragma warning restore 612, 618
         }

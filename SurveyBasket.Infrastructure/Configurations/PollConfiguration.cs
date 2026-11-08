@@ -8,6 +8,9 @@ namespace SurveyBasket.Infrastructure.Configurations
         {
             base.Configure(builder);
 
+            builder.ToTable("Polls", "dbo");
+
+
             builder.HasIndex(x => x.Title)
                 .IsUnique();
 

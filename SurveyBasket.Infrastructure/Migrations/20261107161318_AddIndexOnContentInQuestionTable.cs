@@ -2,27 +2,28 @@
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace SurveyBasket.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddIndexToPollTable : Migration
+    public partial class AddIndexOnContentInQuestionTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateIndex(
-                name: "IX_Polls_Title",
-                table: "Polls",
-                column: "Title",
-                unique: true);
+                name: "IX_Questions_Content",
+                schema: "dbo",
+                table: "Questions",
+                column: "Content");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropIndex(
-                name: "IX_Polls_Title",
-                table: "Polls");
+                name: "IX_Questions_Content",
+                schema: "dbo",
+                table: "Questions");
         }
     }
 }

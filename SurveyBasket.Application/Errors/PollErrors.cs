@@ -7,11 +7,11 @@ namespace SurveyBasket.Application.Errors
     public static class PollErrors
     {
         public static readonly Error PollNotFound
-            = new Error("Poll Not Found",
+            = new ("Poll Not Found",
                    "Poll With entered Id Not Found !..");
 
         public static readonly Error PollAlreadyExists
-            = new Error("Poll Already Exists",
+            = new ("Poll Already Exists",
                    "Poll With entered Title Already Exists !..");
     }
 }

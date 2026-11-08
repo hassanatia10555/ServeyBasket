@@ -2,7 +2,7 @@
 {
     public record PollResponse
     (
-        string Id,
+        Guid Id,
         string Title,
         string Summary,
         DateTime? StartsAt,

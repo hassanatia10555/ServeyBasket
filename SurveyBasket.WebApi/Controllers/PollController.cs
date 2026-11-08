@@ -11,7 +11,7 @@ namespace WebApi.Controllers
         private readonly IPollService _pollService = pollService;
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _pollService.GetPollAsync(id, cancellationToken);
 
@@ -39,7 +39,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] string id, [FromBody] PollRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] PollRequest request, CancellationToken cancellationToken)
         {
             var result = await _pollService.UpdatePollAsync(id, request, cancellationToken);
             
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _pollService.DeletePollAsync(id, cancellationToken);
             
@@ -61,7 +61,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}/TogglePublish")]
-        public async Task<IActionResult> TogglePublishStatus([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> TogglePublishStatus([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _pollService.TogglePublishStatusAsync(id, cancellationToken);
             

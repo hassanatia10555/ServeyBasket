@@ -11,7 +11,7 @@ namespace SurveyBasket.Application.Services
         private readonly IMapper _mapper = mapper;
         private DbSet<Poll> entity => _Context.Set<Poll>();
 
-        public async Task<Result<PollResponse>> GetPollAsync(string id, CancellationToken cancellationToken)
+        public async Task<Result<PollResponse>> GetPollAsync(Guid id, CancellationToken cancellationToken)
         {
             var poll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -49,7 +49,7 @@ namespace SurveyBasket.Application.Services
             return Result.Success<PollResponse>(_mapper.Map<PollResponse>(poll));
         }
 
-        public async Task<Result> UpdatePollAsync(string id, PollRequest request, CancellationToken cancellationToken)
+        public async Task<Result> UpdatePollAsync(Guid id, PollRequest request, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
             
@@ -75,7 +75,7 @@ namespace SurveyBasket.Application.Services
             return Result.Success();
         }
 
-        public async Task<Result> DeletePollAsync(string id, CancellationToken cancellationToken)
+        public async Task<Result> DeletePollAsync(Guid id, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -92,7 +92,7 @@ namespace SurveyBasket.Application.Services
             return Result.Success();
         }
 
-        public async Task<Result> TogglePublishStatusAsync(string id, CancellationToken cancellationToken)
+        public async Task<Result> TogglePublishStatusAsync(Guid id, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 

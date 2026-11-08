@@ -9,6 +9,7 @@ global using SurveyBasket.Application.Contracts.Auth.Login;
 global using SurveyBasket.Application.Contracts.Auth.RefreshToken;
 global using Microsoft.EntityFrameworkCore;
 global using SurveyBasket.Application.Contracts.Poll;
+global using SurveyBasket.Application.Contracts.Question;
 global using SurveyBasket.Application.Interfaces.Auth;
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.Extensions.Logging;
