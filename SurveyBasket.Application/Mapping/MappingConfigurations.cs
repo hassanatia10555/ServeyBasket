@@ -26,6 +26,16 @@
                 //.Map(dest => dest.CreatedOn, src => src.CreatedOn)
                 //.Map(dest => dest.UpdatedOn, src => src.UpdatedOn);
 
+            // Question
+            config.NewConfig<Question, QuestionResponse>()
+                .Map(dest => dest.Id, src => src.Id)
+                .Map(dest => dest.Content, src => src.Content)
+                .Map(dest => dest.Answers, src => src.Answers);
+
+            config.NewConfig<Answer, AnswerResponse>()
+                .Map(dest => dest.Id, src => src.Id)
+                .Map(dest => dest.Content, src => src.Content);
+
             // Application User
 
             config.NewConfig<RegisterRequest, ApplicationUser>()

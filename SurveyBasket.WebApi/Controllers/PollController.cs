@@ -1,4 +1,5 @@
 ﻿using SurveyBasket.Application.Abstractions;
+using SurveyBasket.Application.Errors;
 
 namespace WebApi.Controllers
 {
@@ -10,7 +11,7 @@ namespace WebApi.Controllers
         private readonly IPollService _pollService = pollService;
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _pollService.GetPollAsync(id, cancellationToken);
 
@@ -32,21 +33,25 @@ namespace WebApi.Controllers
             var result = await _pollService.CreatePollAsync(request, cancellationToken);
             return result.IsSuccess ?
                 CreatedAtAction(nameof(Get), new { id = result.Value.Id }, result.Value)
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.Error == PollErrors.PollNotFound ?
+                     result.ToProblem(StatusCodes.Status404NotFound) :
+                     result.ToProblem(StatusCodes.Status409Conflict);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] string id, [FromBody] PollRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] PollRequest request, CancellationToken cancellationToken)
         {
             var result = await _pollService.UpdatePollAsync(id, request, cancellationToken);
             
             return result.IsSuccess ?
                 NoContent()
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.Error == PollErrors.PollNotFound ?
+                     result.ToProblem(StatusCodes.Status404NotFound) :
+                     result.ToProblem(StatusCodes.Status409Conflict);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _pollService.DeletePollAsync(id, cancellationToken);
             
@@ -56,7 +61,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}/TogglePublish")]
-        public async Task<IActionResult> TogglePublishStatus([FromRoute] string id, CancellationToken cancellationToken)
+        public async Task<IActionResult> TogglePublishStatus([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _pollService.TogglePublishStatusAsync(id, cancellationToken);
             

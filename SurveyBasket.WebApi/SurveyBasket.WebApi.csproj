@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\SurveyBasket.Infrastructure.csproj" />
-    <ProjectReference Include="..\Service\SurveyBasket.Application.csproj" />
+    <ProjectReference Include="..\SurveyBasket.Infrastructure\SurveyBasket.Infrastructure.csproj" />
+    <ProjectReference Include="..\SurveyBasket.Application\SurveyBasket.Application.csproj" />
   </ItemGroup>
 
 </Project>

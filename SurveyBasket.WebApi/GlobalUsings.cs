@@ -8,6 +8,7 @@ global using SurveyBasket.Application.Contracts.Auth.Register;
 global using SurveyBasket.Application.Interfaces.Auth;
 global using Microsoft.AspNetCore.Authorization;
 global using SurveyBasket.Application.Contracts.Poll;
+global using SurveyBasket.Application.Contracts.Question;
 global using SurveyBasket.Application.Interfaces;
 global using SurveyBasket.Infrastructure.Extensions;
 global using SurveyBasket.Application.Extensions;

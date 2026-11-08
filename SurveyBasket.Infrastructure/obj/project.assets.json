@@ -4499,13 +4499,13 @@
     },
     "SurveyBasket.Application/1.0.0": {
       "type": "project",
-      "path": "../Service/SurveyBasket.Application.csproj",
-      "msbuildProject": "../Service/SurveyBasket.Application.csproj"
+      "path": "../SurveyBasket.Application/SurveyBasket.Application.csproj",
+      "msbuildProject": "../SurveyBasket.Application/SurveyBasket.Application.csproj"
     },
     "SurveyBasket.Domain/1.0.0": {
       "type": "project",
-      "path": "../Core/SurveyBasket.Domain.csproj",
-      "msbuildProject": "../Core/SurveyBasket.Domain.csproj"
+      "path": "../SurveyBasket.Domain/SurveyBasket.Domain.csproj",
+      "msbuildProject": "../SurveyBasket.Domain/SurveyBasket.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4532,11 +4532,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Infrastructure\\SurveyBasket.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Infrastructure\\SurveyBasket.Infrastructure.csproj",
       "projectName": "SurveyBasket.Infrastructure",
-      "projectPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Infrastructure\\SurveyBasket.Infrastructure.csproj",
+      "projectPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Infrastructure\\SurveyBasket.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\hassan\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Infrastructure\\obj\\",
+      "outputPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4556,11 +4556,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Core\\SurveyBasket.Domain.csproj": {
-              "projectPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Core\\SurveyBasket.Domain.csproj"
+            "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\SurveyBasket.Application.csproj": {
+              "projectPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\SurveyBasket.Application.csproj"
             },
-            "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Service\\SurveyBasket.Application.csproj": {
-              "projectPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\SurveyBasket\\Service\\SurveyBasket.Application.csproj"
+            "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Domain\\SurveyBasket.Domain.csproj": {
+              "projectPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Domain\\SurveyBasket.Domain.csproj"
             }
           }
         }

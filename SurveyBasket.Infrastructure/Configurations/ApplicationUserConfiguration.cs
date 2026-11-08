@@ -4,6 +4,7 @@
     {
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
+
             builder.Property(u => u.FirstName)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -19,7 +20,7 @@
             builder
                 .OwnsMany(x => x.RefreshTokens, rt =>
                 {
-                    rt.ToTable("RefreshTokens");
+                    rt.ToTable("RefreshTokens" , "Auth");
 
                     rt.WithOwner()
                       .HasForeignKey("UserId");

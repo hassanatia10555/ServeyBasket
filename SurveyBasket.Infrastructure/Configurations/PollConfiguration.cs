@@ -8,6 +8,12 @@ namespace SurveyBasket.Infrastructure.Configurations
         {
             base.Configure(builder);
 
+            builder.ToTable("Polls", "dbo");
+
+
+            builder.HasIndex(x => x.Title)
+                .IsUnique();
+
             builder.Property(x => x.Title)
                 .HasMaxLength(100)
                 .IsRequired();
