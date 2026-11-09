@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -51,7 +51,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
@@ -72,7 +72,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -88,7 +88,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -104,7 +104,7 @@
     "Parameters": [
       {
         "Name": "pollId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -120,7 +120,7 @@
     "Parameters": [
       {
         "Name": "pollId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
@@ -141,12 +141,12 @@
     "Parameters": [
       {
         "Name": "pollId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
         "Name": "questionId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -162,12 +162,12 @@
     "Parameters": [
       {
         "Name": "pollId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
         "Name": "questionId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
@@ -188,12 +188,12 @@
     "Parameters": [
       {
         "Name": "pollId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
         "Name": "questionId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -209,12 +209,49 @@
     "Parameters": [
       {
         "Name": "pollId",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
         "Name": "questionId",
-        "Type": "System.Guid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SurveyBasket.WebApi.Controllers.VotesController",
+    "Method": "StartVoteAsync",
+    "RelativePath": "api/Polls/{pollId}/Votes/start",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SurveyBasket.WebApi.Controllers.VotesController",
+    "Method": "CreateVoteAsync",
+    "RelativePath": "api/Polls/{pollId}/Votes/submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SurveyBasket.Application.Contracts.Vote.VoteRequest",
         "IsRequired": true
       }
     ],

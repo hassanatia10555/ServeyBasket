@@ -157,9 +157,9 @@ namespace SurveyBasket.Infrastructure.Migrations
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.Answer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -169,8 +169,9 @@ namespace SurveyBasket.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("QuestionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("QuestionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -257,9 +258,9 @@ namespace SurveyBasket.Infrastructure.Migrations
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.Poll", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CreatedById")
                         .IsRequired()
@@ -305,9 +306,9 @@ namespace SurveyBasket.Infrastructure.Migrations
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.Question", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -317,8 +318,9 @@ namespace SurveyBasket.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("PollId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PollId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -330,12 +332,13 @@ namespace SurveyBasket.Infrastructure.Migrations
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.Vote", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("PollId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PollId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("SubmittedOn")
                         .HasColumnType("datetime2");
@@ -355,18 +358,21 @@ namespace SurveyBasket.Infrastructure.Migrations
 
             modelBuilder.Entity("SurveyBasket.Domain.Models.VoteAnswer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("AnswerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("AnswerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("QuestionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("QuestionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("VoteId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("VoteId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 

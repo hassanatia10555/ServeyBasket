@@ -1,18 +1,16 @@
-﻿namespace SurveyBasket.Application.Errors
+﻿namespace SurveyBasket.Application.Abstractions
 {
     public static class UserErrors
     {
         public static readonly Error IvalidCredentials
-            = new ("Invalid Credentials", "Entered Invalid Email/Password !..");
-
+            = new (StatusCodes.Status401Unauthorized, "Entered Invalid Email/Password !..");
         public static readonly Error UserNotFound
-            = new ("User Not Found", "User Not Found !..");
-
+            = new (StatusCodes.Status404NotFound, "User Not Found !..");
         public static readonly Error InvalidJwtToken
-            = new ("Invalid Jwt Token", "Entered Invalid Jwt Token !..");
+            = new (StatusCodes.Status400BadRequest, "Entered Invalid Jwt Token !..");
         public static readonly Error InvalidRefreshToken
-            = new ("Invalid Refresh Token", "Entered Invalid Refresh Token !..");   
+            = new (StatusCodes.Status400BadRequest, "Entered Invalid Refresh Token !..");   
         public static readonly Error RevokingToken
-            = new ("Token Not Revoked", "Some Errors Hpeend Wihle Revoking Token !..");   
+            = new (StatusCodes.Status400BadRequest, "Some Errors Hpeend Wihle Revoking Token !..");   
     }
 }

@@ -1,4 +1,4 @@
-namespace SurveyBasket.Application.Contracts.Question;
+namespace SurveyBasket.Application.Contracts.Answer;
 
 public record AnswerResponse(
     string Id,

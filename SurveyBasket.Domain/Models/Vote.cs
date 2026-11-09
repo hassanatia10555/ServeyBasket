@@ -2,7 +2,7 @@ namespace SurveyBasket.Domain.Models
 {
     public class Vote : BaseEntity
     {
-        public Guid PollId { get; set; }
+        public string PollId { get; set; } = default!;
         public Poll Poll { get; set; } = default!;
 
         public string UserId { get; set; } = default!;

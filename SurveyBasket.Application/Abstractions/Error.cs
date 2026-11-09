@@ -1,8 +1,10 @@
-﻿namespace SurveyBasket.Application.Abstractions
+﻿using Microsoft.AspNetCore.Http;
+
+namespace SurveyBasket.Application.Abstractions
 {
-    public record Error(string Code , string Description)
+    public record Error( int Code , string Description)
     {
         public readonly static Error None
-            = new(string.Empty, string.Empty);
+            = new(0, string.Empty);
     }
 }

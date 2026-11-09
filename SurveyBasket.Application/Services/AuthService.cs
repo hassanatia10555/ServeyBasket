@@ -1,4 +1,4 @@
-﻿using SurveyBasket.Application.Errors;
+﻿using SurveyBasket.Application.Abstractions;
 
 namespace SurveyBasket.Application.Services
 {
@@ -99,10 +99,10 @@ namespace SurveyBasket.Application.Services
                 Result.Failure<RefreshTokenResponse>(UserErrors.RevokingToken);
 
             // create new tokens 
-            var newJwtToken = _jwtProvider.GenerateJwtToken(applicationUser);
+            var newJwtToken = _jwtProvider.GenerateJwtToken(applicationUser!);
 
             var newRefreshToken =
-                                 await _refreshTokenServise.AssignRefreshTokenAsync(applicationUser,
+                                 await _refreshTokenServise.AssignRefreshTokenAsync(applicationUser!,
                                                                                           cancellationToken);
 
             // return tokens

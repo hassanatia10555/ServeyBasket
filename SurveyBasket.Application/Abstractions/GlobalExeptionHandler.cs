@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SurveyBasket.Application.Errors
+namespace SurveyBasket.Application.Abstractions
 {
     public class GlobalExeptionHandler(ILogger<GlobalExeptionHandler> logger) : IExceptionHandler
     {

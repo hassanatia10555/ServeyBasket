@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Contracts\VoteAnswerRequestValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Contracts\VoteAnswer\VoteAnswerRequestValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.2.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.2.0" />
     <PackageReference Include="Mapster" Version="10.0.14" />

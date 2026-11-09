@@ -18,7 +18,7 @@ namespace WebApi.Controllers
 
             return result.IsSuccess ?
                 Ok(result.Value)
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.ToProblem();
         }
 
         [HttpPost]
@@ -29,7 +29,7 @@ namespace WebApi.Controllers
 
             return result.IsSuccess ?
                 Ok(result.Value)
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.ToProblem();
         }
         
 
@@ -41,7 +41,7 @@ namespace WebApi.Controllers
 
             return result.IsSuccess ?
                 Ok(result.Value)
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.ToProblem();
         }
         
 
@@ -53,7 +53,7 @@ namespace WebApi.Controllers
 
             return result.IsSuccess ?
                 Ok("Token Revoked Successfuly.")
-               : result.ToProblem(StatusCodes.Status400BadRequest);
+               : result.ToProblem();
         }    
     }
 }

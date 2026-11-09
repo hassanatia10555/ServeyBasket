@@ -1,4 +1,6 @@
-﻿namespace Core.Mapping
+﻿using SurveyBasket.Application.Contracts.Answer;
+
+namespace Core.Mapping
 {
     public class MappingConfigurations  : IRegister
     {
@@ -40,7 +42,7 @@
 
             config.NewConfig<RegisterRequest, ApplicationUser>()
                 .Map(dest=>dest.UserName , src => src.Email)
-                .TwoWays();                
+                .TwoWays();            
         }
     }
 }

@@ -16,3 +16,6 @@ global using Microsoft.Extensions.Logging;
 global using SurveyBasket.Application.Interfaces;
 global using SurveyBasket.Application.Services;
 global using SurveyBasket.Domain.Models;
+global using SurveyBasket.Application.Contracts.Vote;
+global using Microsoft.AspNetCore.Http;
+
