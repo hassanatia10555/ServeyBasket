@@ -373,3 +373,15 @@ D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\obj\Debug\n
 D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\obj\Debug\net10.0\SurveyBasket.WebApi.pdb
 D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\obj\Debug\net10.0\SurveyBasket.WebApi.genruntimeconfig.cache
 D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\obj\Debug\net10.0\ref\SurveyBasket.WebApi.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.AspNetCore.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Serilog.Sinks.File.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\MailKit.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\MimeKit.Core.dll
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.WebApi\bin\Debug\net10.0\Templates\ConfirmationEmail.html

@@ -1,6 +1,4 @@
-﻿using SurveyBasket.Application.Interfaces.Auth;
-
-namespace SurveyBasket.Infrastructure.Services.Authentication
+﻿namespace SurveyBasket.Infrastructure.Services.Authentication
 {
     public class JwtProvider(IOptions<JwtOptions> jwtOptions) : IJwtProvider
     {

@@ -1,6 +1,4 @@
-using SurveyBasket.Application.Abstractions;
-
-namespace WebApi.Controllers;
+namespace SurveyBasket.WebApi.Controllers;
 
 [Route("api/polls/{pollId}/questions")]
 [ApiController]
@@ -9,8 +7,8 @@ public class QuestionsController(IQuestionService questionService) : ControllerB
 {
     private readonly IQuestionService _questionService = questionService;
 
-    [HttpGet("{questionId:guid}")]
-    public async Task<IActionResult> Get(string pollId, string questionId, CancellationToken cancellationToken)
+    [HttpGet("{questionId:alpha}")]
+    public async Task<IActionResult> Get([FromRoute]string pollId, [FromRoute]string questionId, CancellationToken cancellationToken)
     {
         var result = await _questionService.GetQuestionAsync(pollId, questionId, cancellationToken);
         return result.IsSuccess
@@ -19,7 +17,7 @@ public class QuestionsController(IQuestionService questionService) : ControllerB
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll(string pollId, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAll([FromRoute]string pollId, CancellationToken cancellationToken)
     {
         var result = await _questionService.ListQuestionsAsync(pollId, cancellationToken);
         return result.IsSuccess
@@ -28,7 +26,7 @@ public class QuestionsController(IQuestionService questionService) : ControllerB
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(string pollId, QuestionRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Create([FromRoute]string pollId,[FromBody] QuestionRequest request, CancellationToken cancellationToken)
     {
         var result = await _questionService.CreateQuestionAsync(pollId, request, cancellationToken);
         return result.IsSuccess
@@ -36,8 +34,8 @@ public class QuestionsController(IQuestionService questionService) : ControllerB
             : result.ToProblem();
     }
 
-    [HttpPut("{questionId:guid}")]
-    public async Task<IActionResult> Update(string pollId, string questionId, QuestionRequest request, CancellationToken cancellationToken)
+    [HttpPut("{questionId:alpha}")]
+    public async Task<IActionResult> Update([FromRoute]string pollId, [FromRoute]string questionId, [FromBody] QuestionRequest request, CancellationToken cancellationToken)
     {
         var result = await _questionService.UpdateQuestionAsync(pollId, questionId, request, cancellationToken);
         return result.IsSuccess
@@ -45,8 +43,8 @@ public class QuestionsController(IQuestionService questionService) : ControllerB
             : result.ToProblem();
     }
 
-    [HttpDelete("{questionId:guid}")]
-    public async Task<IActionResult> Delete(string pollId, string questionId, CancellationToken cancellationToken)
+    [HttpDelete("{questionId:alpha}")]
+    public async Task<IActionResult> Delete([FromRoute]string pollId, [FromRoute]string questionId, CancellationToken cancellationToken)
     {
         var result = await _questionService.DeleteQuestionAsync(pollId, questionId, cancellationToken);
         return result.IsSuccess
@@ -54,8 +52,8 @@ public class QuestionsController(IQuestionService questionService) : ControllerB
             : result.ToProblem();
     }
 
-    [HttpPut("{questionId:guid}/ToggleActive")]
-    public async Task<IActionResult> ToggleActiveStatus(string pollId, string questionId, CancellationToken cancellationToken)
+    [HttpPut("{questionId:alpha}/ToggleActive")]
+    public async Task<IActionResult> ToggleActiveStatus([FromRoute]string pollId, [FromRoute]string questionId, CancellationToken cancellationToken)
     {
         var result = await _questionService.ToggleActiveStatusAsync(pollId, questionId, cancellationToken);
         return result.IsSuccess

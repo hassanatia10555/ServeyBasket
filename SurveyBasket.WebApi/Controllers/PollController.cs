@@ -1,6 +1,4 @@
-﻿using SurveyBasket.Application.Abstractions;
-
-namespace WebApi.Controllers
+﻿namespace SurveyBasket.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -9,7 +7,7 @@ namespace WebApi.Controllers
     {
         private readonly IPollService _pollService = pollService;
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:alpha}")]
         public async Task<IActionResult> Get([FromRoute] string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.GetPollAsync(id, cancellationToken);
@@ -18,14 +16,12 @@ namespace WebApi.Controllers
                 Ok(result.Value)
                : result.ToProblem();
         }
-
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var polls = await _pollService.ListPollsAsync(cancellationToken);
             return Ok(polls);
         }
-
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] PollRequest request, CancellationToken cancellationToken)
         {
@@ -34,8 +30,7 @@ namespace WebApi.Controllers
                 CreatedAtAction(nameof(Get), new { id = result.Value.Id }, result.Value)
                : result.ToProblem();
         }
-
-        [HttpPut("{id}")]
+        [HttpPut("{id:alpha}")]
         public async Task<IActionResult> Update([FromRoute] string id, [FromBody] PollRequest request, CancellationToken cancellationToken)
         {
             var result = await _pollService.UpdatePollAsync(id, request, cancellationToken);
@@ -44,8 +39,7 @@ namespace WebApi.Controllers
                NoContent()
               : result.ToProblem();
         }
-
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:alpha}")]
         public async Task<IActionResult> Delete([FromRoute] string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.DeletePollAsync(id, cancellationToken);
@@ -54,8 +48,7 @@ namespace WebApi.Controllers
                 NoContent()
                : result.ToProblem();
         }
-
-        [HttpPut("{id}/TogglePublish")]
+        [HttpPut("{id:alpha}/TogglePublish")]
         public async Task<IActionResult> TogglePublishStatus([FromRoute] string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.TogglePublishStatusAsync(id, cancellationToken);

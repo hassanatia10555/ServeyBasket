@@ -1,4 +1,7 @@
-﻿using SurveyBasket.Application.Contracts.Answer;
+﻿using Mapster;
+using SurveyBasket.Application.Contracts.Answer;
+using SurveyBasket.Application.Contracts.Poll;
+using SurveyBasket.Application.Contracts.Question;
 
 namespace Core.Mapping
 {

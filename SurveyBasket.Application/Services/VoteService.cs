@@ -1,5 +1,5 @@
-﻿using SurveyBasket.Application.Contracts.Answer;
-using SurveyBasket.Application.Abstractions;
+﻿using SurveyBasket.Application.Contracts.Vote;
+using SurveyBasket.Domain.Interfaces;
 
 namespace SurveyBasket.Application.Services
 {

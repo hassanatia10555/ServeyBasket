@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[12.2.0, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[10.0.14, )"
@@ -97,6 +101,14 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[10.0.14, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.1.1, )"
             },
             "SharpGrip.FluentValidation.AutoValidation.Mvc": {
               "target": "Package",

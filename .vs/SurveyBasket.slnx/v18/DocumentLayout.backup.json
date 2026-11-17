@@ -1,48 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\errors\\pollerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\errors\\pollerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\abstractions\\resultextenssions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\abstractions\\resultextenssions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\abstractions\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\abstractions\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\errors\\voteerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\errors\\voteerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\services\\voteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\services\\voteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59759BB0-6BA7-A7A3-866E-85A6698A0A46}|SurveyBasket.WebApi\\SurveyBasket.WebApi.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.webapi\\controllers\\votescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59759BB0-6BA7-A7A3-866E-85A6698A0A46}|SurveyBasket.WebApi\\SurveyBasket.WebApi.csproj|solutionrelative:surveybasket.webapi\\controllers\\votescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59759BB0-6BA7-A7A3-866E-85A6698A0A46}|SurveyBasket.WebApi\\SurveyBasket.WebApi.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.webapi\\extensions\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59759BB0-6BA7-A7A3-866E-85A6698A0A46}|SurveyBasket.WebApi\\SurveyBasket.WebApi.csproj|solutionrelative:surveybasket.webapi\\extensions\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59759BB0-6BA7-A7A3-866E-85A6698A0A46}|SurveyBasket.WebApi\\SurveyBasket.WebApi.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.webapi\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59759BB0-6BA7-A7A3-866E-85A6698A0A46}|SurveyBasket.WebApi\\SurveyBasket.WebApi.csproj|solutionrelative:surveybasket.webapi\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\interfaces\\ivoteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\interfaces\\ivoteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|d:\\users\\hassan\\desktop\\my\\projects\\serveybasket\\surveybasket.application\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E982DC7B-F5E6-5CBE-8DD9-929798CE3D89}|SurveyBasket.Application\\SurveyBasket.Application.csproj|solutionrelative:surveybasket.application\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -50,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -59,136 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PollErrors.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Errors\\PollErrors.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Errors\\PollErrors.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Errors\\PollErrors.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Errors\\PollErrors.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T20:01:54.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Error.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Abstractions\\Error.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Abstractions\\Error.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Abstractions\\Error.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Abstractions\\Error.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T20:01:27.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ResultExtenssions.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Abstractions\\ResultExtenssions.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Abstractions\\ResultExtenssions.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Abstractions\\ResultExtenssions.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Abstractions\\ResultExtenssions.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAwAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T20:00:01.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "QuestionsController.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.WebApi\\Controllers\\QuestionsController.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.WebApi\\Controllers\\QuestionsController.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.WebApi\\Controllers\\QuestionsController.cs",
-              "RelativeToolTip": "SurveyBasket.WebApi\\Controllers\\QuestionsController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwAQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:48:52.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.WebApi\\Extensions\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.WebApi\\Extensions\\DependencyInjection.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.WebApi\\Extensions\\DependencyInjection.cs",
-              "RelativeToolTip": "SurveyBasket.WebApi\\Extensions\\DependencyInjection.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAswBUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:35:39.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VotesController.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.WebApi\\Controllers\\VotesController.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.WebApi\\Controllers\\VotesController.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.WebApi\\Controllers\\VotesController.cs",
-              "RelativeToolTip": "SurveyBasket.WebApi\\Controllers\\VotesController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAswB0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:32:14.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VoteErrors.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Errors\\VoteErrors.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Errors\\VoteErrors.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Errors\\VoteErrors.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Errors\\VoteErrors.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:29:57.64Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IVoteService.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Interfaces\\IVoteService.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Interfaces\\IVoteService.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Interfaces\\IVoteService.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Interfaces\\IVoteService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:09:12.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VoteService.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Services\\VoteService.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Services\\VoteService.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Services\\VoteService.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Services\\VoteService.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAuwDUAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:08:51.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "QuestionService.cs",
-              "DocumentMoniker": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Services\\QuestionService.cs",
-              "RelativeDocumentMoniker": "SurveyBasket.Application\\Services\\QuestionService.cs",
-              "ToolTip": "D:\\Users\\hassan\\Desktop\\My\\Projects\\ServeyBasket\\SurveyBasket.Application\\Services\\QuestionService.cs",
-              "RelativeToolTip": "SurveyBasket.Application\\Services\\QuestionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T19:07:58.791Z",
-              "EditorCaption": ""
             }
           ]
         }

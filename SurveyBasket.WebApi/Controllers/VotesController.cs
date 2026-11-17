@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SurveyBasket.Application.Abstractions;
-using SurveyBasket.Application.Contracts.Vote;
-using SurveyBasket.WebApi.Extensions;
-
-namespace SurveyBasket.WebApi.Controllers
+﻿namespace SurveyBasket.WebApi.Controllers
 {
     [Route("api/Polls/{pollId}/[controller]")]
     [ApiController]
@@ -14,7 +8,7 @@ namespace SurveyBasket.WebApi.Controllers
         private readonly IVoteService _voteService = voteService;
 
         [HttpGet("start")]
-        public async Task<IActionResult> StartVoteAsync(string pollId, CancellationToken cancellationToken)
+        public async Task<IActionResult> StartVoteAsync([FromRoute]string pollId, CancellationToken cancellationToken)
         {
             var userId = User.GetUserId();
 
@@ -26,7 +20,7 @@ namespace SurveyBasket.WebApi.Controllers
         }
 
         [HttpPost("submit")]
-        public async Task<IActionResult> CreateVoteAsync(string pollId, VoteRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateVoteAsync([FromRoute]string pollId, VoteRequest request, CancellationToken cancellationToken)
         {
             var userId = User.GetUserId();
 

@@ -1,4 +1,7 @@
-﻿namespace SurveyBasket.Infrastructure.Extensions
+﻿using SurveyBasket.Infrastructure.Services.Email;
+using SurveyBasket.Infrastructure.Services.Email.ConfirmationEmail;
+
+namespace SurveyBasket.Infrastructure.Extensions
 {
     public static class DependencyInjection
     {
@@ -9,24 +12,26 @@
             services.AddIdentityServices();
             services.AddJwtConfig();
             services.AddServicesLifeTime();
-            services.AddJwtOptionsConfig();
         }
         private static IServiceCollection AddServicesLifeTime(this IServiceCollection services)
         {
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+            services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
-            services.AddScoped<IApplicationDbContext , ApplicationDbContext>();
+            services.AddTransient<INotificationService, ConfirmEmailNotificationService>();
 
-            services.AddHttpContextAccessor();
+            services.AddKeyedTransient<IEmailBodyBuilder,
+                        ConfirmationEmailBodyBuilder>("ConfirmationEmail");
 
-            services.AddScoped<ICurrentUserService,
-                CurrentUserService>();
+            services.AddTransient<IEmailBodyBuilderFactory,EmailBodyBuilderFactory>();
 
             services.AddScoped<AuditInterceptor>();
-
+            services.AddHttpContextAccessor();
             return services;
         }
-        private static IServiceCollection AddApplicationDbContext(this IServiceCollection services,IConfiguration configuration)
+        private static IServiceCollection AddApplicationDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
@@ -43,14 +48,12 @@
         {
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredLength = 6;
+                options.Password.RequiredLength = 8;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             return services;
         }
@@ -93,20 +96,6 @@
                                 ValidateLifetime = true
                             };
                     });
-
-            return services;
-        }
-        private static IServiceCollection AddJwtOptionsConfig(
-                 this IServiceCollection services)
-        {
-            services.AddSingleton<IValidator<JwtOptions>, JwtOptionsValidator>();
-
-            services.AddSingleton<
-                IValidateOptions<JwtOptions>, JwtOptionsValidation>();
-
-            services.AddOptions<JwtOptions>()
-                .BindConfiguration(JwtOptions.SectionName)
-                .ValidateOnStart();
 
             return services;
         }

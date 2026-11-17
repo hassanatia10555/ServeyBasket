@@ -1,4 +1,5 @@
-﻿using SurveyBasket.Application.Abstractions;
+﻿using SurveyBasket.Application.Contracts.Poll;
+using SurveyBasket.Domain.Interfaces;
 
 namespace SurveyBasket.Application.Services
 {
@@ -52,13 +53,13 @@ namespace SurveyBasket.Application.Services
         public async Task<Result> UpdatePollAsync(string id, PollRequest request, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-            
+
             if (poll is null)
             {
                 _logger.LogError("Poll with id {Id} not found.", id);
-                return Result.Failure(error:PollErrors.PollNotFound);
+                return Result.Failure(error: PollErrors.PollNotFound);
             }
-           
+
             if (poll.Title != request.Title)
             {
                 var existingPoll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Title == request.Title, cancellationToken);
@@ -107,6 +108,6 @@ namespace SurveyBasket.Application.Services
             await _Context.SaveChangesAsync(cancellationToken);
 
             return Result.Success();
-        }        
+        }
     }
 }

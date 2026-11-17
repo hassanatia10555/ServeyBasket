@@ -1,4 +1,6 @@
-﻿namespace SurveyBasket.Application.Contracts.Auth.Login
+﻿using SurveyBasket.Domain.Constants;
+
+namespace SurveyBasket.Application.Contracts.Auth.Login
 {
     public class LoginRequestValidator : AbstractValidator<LoginRequest>
     {
@@ -11,19 +13,7 @@
             RuleFor(x => x.Password)
                 .NotEmpty().WithMessage("Password is required.")
                 .MinimumLength(6).WithMessage("Password must be at least 6 characters long.")
-                .Must(BePassword).WithMessage("Pleas Match The Password Constraints");
-                            
-        }
-        private static bool BePassword(string pass) 
-        {
-            if (string.IsNullOrWhiteSpace(pass))
-                return false;
-
-            return pass.Length >= 6
-                    && Regex.IsMatch(pass, @"[A-Z]")
-                    && Regex.IsMatch(pass, @"[a-z]") 
-                    && Regex.IsMatch(pass, @"\d") 
-                    && Regex.IsMatch(pass, @"[^a-zA-Z0-9]");
+                .Matches(RegexPatterns.Password).WithMessage("Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
         }
     }
 }

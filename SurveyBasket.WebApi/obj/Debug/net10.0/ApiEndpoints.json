@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "WebApi.Controllers.PollsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.PollsController",
     "Method": "GetAll",
     "RelativePath": "api/Polls",
     "HttpMethod": "GET",
@@ -10,7 +10,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.PollsController",
     "Method": "Create",
     "RelativePath": "api/Polls",
     "HttpMethod": "POST",
@@ -26,7 +26,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.PollsController",
     "Method": "Get",
     "RelativePath": "api/Polls/{id}",
     "HttpMethod": "GET",
@@ -42,7 +42,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.PollsController",
     "Method": "Update",
     "RelativePath": "api/Polls/{id}",
     "HttpMethod": "PUT",
@@ -63,7 +63,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.PollsController",
     "Method": "Delete",
     "RelativePath": "api/Polls/{id}",
     "HttpMethod": "DELETE",
@@ -79,7 +79,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.PollsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.PollsController",
     "Method": "TogglePublishStatus",
     "RelativePath": "api/Polls/{id}/TogglePublish",
     "HttpMethod": "PUT",
@@ -95,7 +95,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.QuestionsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.QuestionsController",
     "Method": "GetAll",
     "RelativePath": "api/polls/{pollId}/questions",
     "HttpMethod": "GET",
@@ -111,7 +111,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.QuestionsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.QuestionsController",
     "Method": "Create",
     "RelativePath": "api/polls/{pollId}/questions",
     "HttpMethod": "POST",
@@ -132,7 +132,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.QuestionsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.QuestionsController",
     "Method": "Get",
     "RelativePath": "api/polls/{pollId}/questions/{questionId}",
     "HttpMethod": "GET",
@@ -153,7 +153,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.QuestionsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.QuestionsController",
     "Method": "Update",
     "RelativePath": "api/polls/{pollId}/questions/{questionId}",
     "HttpMethod": "PUT",
@@ -179,7 +179,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.QuestionsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.QuestionsController",
     "Method": "Delete",
     "RelativePath": "api/polls/{pollId}/questions/{questionId}",
     "HttpMethod": "DELETE",
@@ -200,7 +200,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.QuestionsController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.QuestionsController",
     "Method": "ToggleActiveStatus",
     "RelativePath": "api/polls/{pollId}/questions/{questionId}/ToggleActive",
     "HttpMethod": "PUT",
@@ -258,7 +258,39 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.AuthController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.ResultsController",
+    "Method": "GetPollVotes",
+    "RelativePath": "api/Results/{pollId}/votes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pollId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SurveyBasket.WebApi.Controllers.AuthController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "Auth/confirm-email",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SurveyBasket.Application.Contracts.Auth.ConfirmEmail.ConfirmEmailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SurveyBasket.WebApi.Controllers.AuthController",
     "Method": "RefreshToken",
     "RelativePath": "Auth/get-refresh-token",
     "HttpMethod": "PUT",
@@ -274,7 +306,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.AuthController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "Auth/login",
     "HttpMethod": "POST",
@@ -290,8 +322,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.AuthController",
-    "Method": "Rigester",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.AuthController",
+    "Method": "Register",
     "RelativePath": "Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
@@ -306,7 +338,23 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.AuthController",
+    "ContainingType": "SurveyBasket.WebApi.Controllers.AuthController",
+    "Method": "ResendConfirmationEmail",
+    "RelativePath": "Auth/resend-confirmation-email",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SurveyBasket.Application.Contracts.Auth.ResendConfirmationEmail.ResendConfirmationEmailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SurveyBasket.WebApi.Controllers.AuthController",
     "Method": "RevokeRefreshToken",
     "RelativePath": "Auth/revoke-refresh-token",
     "HttpMethod": "PUT",
