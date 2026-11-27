@@ -1,4 +1,6 @@
-﻿namespace SurveyBasket.Domain.Interfaces
+﻿using System.Linq.Expressions;
+
+namespace SurveyBasket.Domain.Interfaces
 {
     public interface IIdentityService
     {
@@ -9,6 +11,7 @@
             bool lockoutOnFailure);
 
         Task<IdentityResult> CreateAsync(ApplicationUser user,string password);
+        Task<IEnumerable<ApplicationUser>> GetAllUsersAsync();
         Task<ApplicationUser?> FindByEmailAsync(string email);
         Task<ApplicationUser?> FindByIdAsync(string userId);
         Task<IdentityResult> UpdateAsync(ApplicationUser user);
@@ -16,5 +19,8 @@
         Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser user);
         Task<IdentityResult> ConfirmEmailAsync(ApplicationUser user, string token);
         Task<bool> IsEmailConfirmedAsync(ApplicationUser user);
+        public Task<IEnumerable<ApplicationUser>> FindAllAsync(
+                    Expression<Func<ApplicationUser, bool>> expression,
+                    CancellationToken cancellationToken = default);
     }
 }

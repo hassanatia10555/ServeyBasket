@@ -10,6 +10,8 @@ global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Options;
 global using Microsoft.IdentityModel.Tokens;
+global using SurveyBasket.Application.Interfaces.NotificationService;
+global using SurveyBasket.Domain.Constants;
 global using SurveyBasket.Domain.Interfaces;
 global using SurveyBasket.Domain.Models;
 global using SurveyBasket.Domain.Options.JwtOptions;

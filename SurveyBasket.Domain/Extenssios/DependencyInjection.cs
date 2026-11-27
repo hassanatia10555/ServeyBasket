@@ -32,8 +32,8 @@ public static class DependencyInjection
             .ValidateOnStart();
 
         // Register the Email Setting Configuration
-        services.AddOptions<EmailSetting>()
-            .BindConfiguration(EmailSetting.SectionName)
+        services.AddOptions<EmailSettings>()
+            .BindConfiguration(EmailSettings.SectionName)
             .ValidateOnStart();
 
         return services;

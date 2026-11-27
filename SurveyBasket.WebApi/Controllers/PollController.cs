@@ -7,7 +7,7 @@
     {
         private readonly IPollService _pollService = pollService;
 
-        [HttpGet("{id:alpha}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.GetPollAsync(id, cancellationToken);
@@ -30,7 +30,7 @@
                 CreatedAtAction(nameof(Get), new { id = result.Value.Id }, result.Value)
                : result.ToProblem();
         }
-        [HttpPut("{id:alpha}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromRoute] string id, [FromBody] PollRequest request, CancellationToken cancellationToken)
         {
             var result = await _pollService.UpdatePollAsync(id, request, cancellationToken);
@@ -39,7 +39,7 @@
                NoContent()
               : result.ToProblem();
         }
-        [HttpDelete("{id:alpha}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.DeletePollAsync(id, cancellationToken);
@@ -48,7 +48,7 @@
                 NoContent()
                : result.ToProblem();
         }
-        [HttpPut("{id:alpha}/TogglePublish")]
+        [HttpPut("{id}/TogglePublish")]
         public async Task<IActionResult> TogglePublishStatus([FromRoute] string id, CancellationToken cancellationToken)
         {
             var result = await _pollService.TogglePublishStatusAsync(id, cancellationToken);

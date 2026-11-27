@@ -36,7 +36,6 @@
                 Ok()
                : result.ToProblem();
         }
-
         [HttpPut]
         [Route("confirm-email")]
         public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailRequest request, CancellationToken cancellationToken)

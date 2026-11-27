@@ -14,7 +14,6 @@ global using SurveyBasket.Application.Contracts.Auth.Login;
 global using SurveyBasket.Application.Contracts.Auth.RefreshToken;
 global using SurveyBasket.Application.Contracts.Auth.Register;
 global using SurveyBasket.Application.Contracts.Auth.ResendConfirmationEmail;
-global using SurveyBasket.Application.Contracts.ConfirmationEmail;
 global using SurveyBasket.Application.Contracts.Poll;
 global using SurveyBasket.Application.Contracts.Question;
 global using SurveyBasket.Application.Contracts.Results;

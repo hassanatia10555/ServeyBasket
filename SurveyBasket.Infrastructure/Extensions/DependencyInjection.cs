@@ -1,5 +1,10 @@
-﻿using SurveyBasket.Infrastructure.Services.Email;
-using SurveyBasket.Infrastructure.Services.Email.ConfirmationEmail;
+﻿using Hangfire;
+using SurveyBasket.Application.Contracts.TemplateModels;
+using SurveyBasket.Application.Interfaces.NotificationService.Abstractions;
+using SurveyBasket.Infrastructure.Services.EmailService;
+using SurveyBasket.Infrastructure.Services.EmailService.Abstractions.Email;
+using SurveyBasket.Infrastructure.Services.EmailService.ConfirmationEmail;
+using SurveyBasket.Infrastructure.Services.NotificationService.Abstractions;
 
 namespace SurveyBasket.Infrastructure.Extensions
 {
@@ -12,6 +17,7 @@ namespace SurveyBasket.Infrastructure.Extensions
             services.AddIdentityServices();
             services.AddJwtConfig();
             services.AddServicesLifeTime();
+            services.AddHangfireServices(configuration);
         }
         private static IServiceCollection AddServicesLifeTime(this IServiceCollection services)
         {
@@ -19,19 +25,36 @@ namespace SurveyBasket.Infrastructure.Extensions
             services.AddScoped<IRefreshTokenService, RefreshTokenService>();
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<INotificationSenderFactory, NotificationSenderFactory>();
+            services.AddScoped<IMessageBodyBuilderFactory, MessageBodyBuilderFactory>();
 
-            services.AddTransient<INotificationService, ConfirmEmailNotificationService>();
+            services.AddKeyedTransient
+                <INotificationSender, EmailNotificationSender>(NotificationChannel.Email);
 
-            services.AddKeyedTransient<IEmailBodyBuilder,
-                        ConfirmationEmailBodyBuilder>("ConfirmationEmail");
+            services.AddKeyedTransient<
+                IMessageBodyBuilder<ConfirmationEmailTemplateModel>,
+                ConfirmationEmailMessageBodyBuilder>(
+                (
+                    NotificationChannel.Email,
+                    NotificationMessageType.ConfirmationEmail,
+                    typeof(ConfirmationEmailTemplateModel)
+                ));
 
-            services.AddTransient<IEmailBodyBuilderFactory,EmailBodyBuilderFactory>();
+            services.AddKeyedTransient<
+                IMessageBodyBuilder<NewPollEmailTemplateModel>,
+                NewPollEmailMessageBodyBuilder>(
+                (
+                    NotificationChannel.Email,
+                    NotificationMessageType.NewPoll,
+                    typeof(NewPollEmailTemplateModel)
+                ));
 
             services.AddScoped<AuditInterceptor>();
             services.AddHttpContextAccessor();
             return services;
         }
-        private static IServiceCollection AddApplicationDbContext(this IServiceCollection services, IConfiguration configuration)
+        private static IServiceCollection AddApplicationDbContext(
+            this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
@@ -99,5 +122,22 @@ namespace SurveyBasket.Infrastructure.Extensions
 
             return services;
         }
+
+        private static IServiceCollection AddHangfireServices(
+            this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            services.AddHangfire(config => config
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(
+                    configuration.GetConnectionString("HangfireConnection")));
+
+            services.AddHangfireServer();
+
+            return services;
+        }
+
     }
 }

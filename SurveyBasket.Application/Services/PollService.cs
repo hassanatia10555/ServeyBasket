@@ -1,11 +1,14 @@
-﻿using SurveyBasket.Application.Contracts.Poll;
+﻿using Hangfire;
+using SurveyBasket.Application.Contracts.Poll;
+using SurveyBasket.Application.Interfaces.NotificationService;
 using SurveyBasket.Domain.Interfaces;
 
 namespace SurveyBasket.Application.Services
 {
     public class PollService(IApplicationDbContext applicationDbContext
                             , ILogger<PollService> logger
-                            , IMapper mapper) : IPollService
+                            , IMapper mapper
+                            , IPollNotificationService pollNotification) : IPollService
     {
         private readonly IApplicationDbContext _Context = applicationDbContext;
         private readonly ILogger<PollService> _logger = logger;
@@ -26,13 +29,11 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success<PollResponse>(response);
         }
-
         public async Task<IEnumerable<PollResponse>> ListPollsAsync(CancellationToken cancellationToken)
         {
             var polls = await entity.AsNoTracking().ToListAsync(cancellationToken);
             return _mapper.Map<IEnumerable<PollResponse>>(polls);
         }
-
         public async Task<Result<PollResponse>> CreatePollAsync(PollRequest request, CancellationToken cancellationToken)
         {
             var existingPoll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Title == request.Title, cancellationToken);
@@ -49,7 +50,6 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success<PollResponse>(_mapper.Map<PollResponse>(poll));
         }
-
         public async Task<Result> UpdatePollAsync(string id, PollRequest request, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
@@ -75,7 +75,6 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success();
         }
-
         public async Task<Result> DeletePollAsync(string id, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
@@ -92,7 +91,6 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success();
         }
-
         public async Task<Result> TogglePublishStatusAsync(string id, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
@@ -106,6 +104,11 @@ namespace SurveyBasket.Application.Services
             poll.IsPublished = !poll.IsPublished;
             entity.Update(poll);
             await _Context.SaveChangesAsync(cancellationToken);
+
+            if (poll.IsPublished && poll.StartsAt!.Value.Date == DateTime.UtcNow.Date) 
+            {
+                BackgroundJob.Enqueue(() => pollNotification.SendNewPollNotificationAsync(poll.Id));
+            }
 
             return Result.Success();
         }

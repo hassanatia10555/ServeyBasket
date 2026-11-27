@@ -1,4 +1,5 @@
-﻿using SurveyBasket.Domain.Extenssios;
+﻿using SurveyBasket.Application.Interfaces.NotificationService;
+using SurveyBasket.Domain.Extenssios;
 
 namespace SurveyBasket.Application.Extensions
 {
@@ -18,6 +19,7 @@ namespace SurveyBasket.Application.Extensions
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IResultsService, ResultsService>();
+            services.AddScoped<IPollNotificationService, PollNotificationService>();
 
             return services;
         }

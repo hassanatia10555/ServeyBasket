@@ -1,4 +1,9 @@
-﻿namespace SurveyBasket.Application.Services
+﻿using Hangfire;
+using SurveyBasket.Application.Contracts.TemplateModels;
+using SurveyBasket.Application.Interfaces.NotificationService.Abstractions;
+using SurveyBasket.Domain.Constants;
+
+namespace SurveyBasket.Application.Services
 {
     public class AuthService(
           IJwtProvider jwtProvider,
@@ -7,8 +12,8 @@
           ILogger<AuthService> logger,
           IIdentityService identityService,
           IHttpContextAccessor httpContextAccessor,
-          INotificationService emailNotification,
-          IEmailBodyBuilderFactory emailBodyBuilderFactory) : IAuthService
+          INotificationSenderFactory notificationSender,
+          IMessageBodyBuilderFactory confirmationEmailMessage) : IAuthService
     {
         private readonly IJwtProvider _jwtProvider = jwtProvider;
         private readonly IRefreshTokenService _refreshTokenServise = refreshTokenService;
@@ -16,8 +21,8 @@
         private readonly ILogger<AuthService> _logger = logger;
         private readonly IIdentityService _identityService = identityService;
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
-        private readonly INotificationService _emailNotification = emailNotification;
-        private readonly IEmailBodyBuilderFactory _emailBodyBuilderFactory = emailBodyBuilderFactory;
+        private readonly INotificationSenderFactory _notificationSenderFactory = notificationSender;
+        private readonly IMessageBodyBuilderFactory _confirmationEmailMessageFactory = confirmationEmailMessage;
 
         public async Task<Result<LoginResponse>> LoginAsync(LoginRequest request, CancellationToken cancellationToken)
         {
@@ -70,27 +75,12 @@
                 var code = await _identityService.GenerateEmailConfirmationTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-                _logger.LogInformation("User registered successfully. User ID: {UserId} \n, Email: {Email}\n Code: {Code}", user.Id, user.Email, code);
-                
-                #region send email
-                var builder = _emailBodyBuilderFactory
-                    .Create("ConfirmationEmail");
+                _logger.LogInformation(
+                    "User registered successfully. User ID: {UserId} \n, Email: {Email}\n Code: {Code}",
+                    user.Id, user.Email, code);
 
-                var body = builder.Build(
-                    new ConfirmationEmailTemplateModel(
-                        $"{user.FirstName} {user.LastName}",
-                        "confirmation-link",
-                        "Survey Basket",
-                        2026));
-
-                await _emailNotification.NotifyAsync(
-                    body,
-                    "Survey Basket Confirmation Email",
-                    user.Email!);
-
-                _logger.LogInformation("Confirmation Email Send To {Email}", user.Email);
-                #endregion
-
+                await SendConfirmationEmailAsync(user);
+                 
                 return Result.Success();
             }
 
@@ -111,27 +101,12 @@
             var code = await _identityService.GenerateEmailConfirmationTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-            _logger.LogInformation("User registered successfully. User ID: {UserId} \n, Email: {Email}\n Code: {Code}", user.Id, user.Email, code);
+            _logger.LogInformation(
+                "Confirmation Email Accepted successfully. User ID: {UserId} \n, Email: {Email}\n Code: {Code}",
+                user.Id, user.Email, code);
 
             // send email
-            #region send email
-            var builder = _emailBodyBuilderFactory
-                .Create("ConfirmationEmail");
-
-            var body = builder.Build(
-                new ConfirmationEmailTemplateModel(
-                    $"{user.FirstName} {user.LastName}",
-                    "confirmation-link", // from frontent dev !
-                    "Survey Basket",
-                    2026));
-
-            await _emailNotification.NotifyAsync(
-                body,
-                "Survey Basket Confirmation Email",
-                user.Email!);
-
-            _logger.LogInformation("Confirmation Email Send To {Email}", user.Email);
-            #endregion
+            await SendConfirmationEmailAsync(user);
 
             return Result.Success();
         }
@@ -227,5 +202,32 @@
 
             return Result.Success();
         } 
+        private async Task SendConfirmationEmailAsync(ApplicationUser user)
+        {
+            var messageBuilder = 
+                _confirmationEmailMessageFactory.Create<ConfirmationEmailTemplateModel>(
+    NotificationChannel.Email, NotificationMessageType.ConfirmationEmail);
+
+            var message = messageBuilder.Build(
+                new ConfirmationEmailTemplateModel(
+                    $"{user.FirstName} {user.LastName}",
+                    "confirmation-link",
+                    "Survey Basket",
+                    2026));
+
+            var notificationSender =
+                _notificationSenderFactory.Create(NotificationChannel.Email);
+
+            //var sentResult = await notificationSender.SendAsync(
+            //    user.Email!,
+            //    message
+            //    , "Conifirmation Email");
+
+            BackgroundJob.Enqueue(() => notificationSender.SendAsync(user.Email!,
+                message
+                , "✅ Conifirmation Email"));
+
+            await Task.CompletedTask;
+        }
     }
 }

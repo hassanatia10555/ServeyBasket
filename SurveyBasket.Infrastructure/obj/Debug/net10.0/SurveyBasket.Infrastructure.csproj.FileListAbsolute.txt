@@ -39,3 +39,4 @@ D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.Infrastructure\obj
 D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.Infrastructure\obj\Debug\net10.0\SurveyBasket.Infrastructure.genruntimeconfig.cache
 D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.Infrastructure\obj\Debug\net10.0\ref\SurveyBasket.Infrastructure.dll
 D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.Infrastructure\bin\Debug\net10.0\Templates\ConfirmationEmail.html
+D:\Users\hassan\Desktop\My\Projects\ServeyBasket\SurveyBasket.Infrastructure\bin\Debug\net10.0\Templates\NewPollEmail.html
