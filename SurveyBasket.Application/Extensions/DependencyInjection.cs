@@ -1,6 +1,5 @@
-﻿using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
-using SurveyBasket.Application.Errors;
-using System.Reflection;
+﻿using SurveyBasket.Application.Interfaces.NotificationService;
+using SurveyBasket.Domain.Extenssios;
 
 namespace SurveyBasket.Application.Extensions
 {
@@ -11,14 +10,16 @@ namespace SurveyBasket.Application.Extensions
             services.AddServiceContracts();
             services.AddMappingServices();
             services.AddValidationService();
+            services.AddDomainServices();
         }
         private static IServiceCollection AddServiceContracts(this IServiceCollection services)
         {
             services.AddScoped<IPollService, PollService>();
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IAuthService, AuthService>();
-            services.AddExceptionHandler<GlobalExeptionHandler>();
-            services.AddProblemDetails();
+            services.AddScoped<IVoteService, VoteService>();
+            services.AddScoped<IResultsService, ResultsService>();
+            services.AddScoped<IPollNotificationService, PollNotificationService>();
 
             return services;
         }

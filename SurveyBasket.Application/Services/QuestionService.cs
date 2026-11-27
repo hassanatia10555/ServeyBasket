@@ -1,4 +1,5 @@
-using SurveyBasket.Application.Errors;
+using SurveyBasket.Application.Contracts.Question;
+using SurveyBasket.Domain.Interfaces;
 
 namespace SurveyBasket.Application.Services;
 
@@ -13,7 +14,7 @@ public class QuestionService(
     private readonly IMapper _mapper = mapper;
     private readonly IValidator<QuestionRequest> _validator = validator;
 
-    public async Task<Result<QuestionResponse>> GetQuestionAsync(Guid pollId, Guid questionId, CancellationToken cancellationToken)
+    public async Task<Result<QuestionResponse>> GetQuestionAsync(string pollId, string questionId, CancellationToken cancellationToken)
     {
         var question = await _context.Set<Question>()
             .AsNoTracking()
@@ -31,7 +32,7 @@ public class QuestionService(
         return Result.Success(question);
     }
 
-    public async Task<Result<IEnumerable<QuestionResponse>>> ListQuestionsAsync(Guid pollId, CancellationToken cancellationToken)
+    public async Task<Result<IEnumerable<QuestionResponse>>> ListQuestionsAsync(string pollId, CancellationToken cancellationToken)
     {
         var questions = await _context.Set<Question>().AsNoTracking()
             .Include(x => x.Answers)
@@ -43,7 +44,7 @@ public class QuestionService(
     }
 
     public async Task<Result<QuestionResponse>> CreateQuestionAsync(
-        Guid pollId,
+        string pollId,
         QuestionRequest request,
         CancellationToken cancellationToken)
     {
@@ -51,7 +52,7 @@ public class QuestionService(
             return Result.Failure<QuestionResponse>(PollErrors.PollNotFound);
 
         var question = _mapper.Map<Question>(request);
-        question.PollId = pollId;
+        question.PollId =pollId;
         var result = await _context.Set<Question>().AddAsync(question, cancellationToken);
 
         try
@@ -68,8 +69,8 @@ public class QuestionService(
     }
 
     public async Task<Result> UpdateQuestionAsync(
-        Guid pollId,
-        Guid questionId,
+        string pollId,
+        string questionId,
         QuestionRequest request,
         CancellationToken cancellationToken)
     {
@@ -117,55 +118,9 @@ public class QuestionService(
         await _context.SaveChangesAsync(cancellationToken);
 
         return Result.Success();
-        
-        //var existingAnswerIds = existingQuestion.Answers.Select(answer => answer.Id).ToHashSet();
-        //var requestedAnswerIds = request.Answers
-        //    .Where(answer => answer.Id.HasValue)
-        //    .Select(answer => answer.Id!.Value)
-        //    .ToHashSet();
-
-        //if (requestedAnswerIds.Any(answerId => !existingAnswerIds.Contains(answerId)))
-        //{
-        //    return Result.Failure(QuestionErrors.AnswerNotFound);
-        //}
-
-        //var removedAnswers = question.Answers
-        //    .Where(answer => !requestedAnswerIds.Contains(answer.Id))
-        //    .ToList();
-        //var removedAnswerIds = removedAnswers.Select(answer => answer.Id).ToArray();
-
-        //if (removedAnswerIds.Length > 0 && await _context.Set<VoteAnswer>()
-        //        .AnyAsync(voteAnswer => removedAnswerIds.Contains(voteAnswer.AnswerId), cancellationToken))
-        //{
-        //    return Result.Failure(QuestionErrors.AnswerInUse);
-        //}
-
-        //_context.Set<Answer>().RemoveRange(removedAnswers);
-        //foreach (var answerRequest in request.Answers)
-        //{
-        //    if (answerRequest.Id is Guid answerId)
-        //    {
-        //        var answer = question.Answers.Single(existing => existing.Id == answerId);
-        //        answer.Content = answerRequest.Content;
-        //        answer.IsActive = answerRequest.IsActive;
-        //    }
-        //    else
-        //    {
-        //        question.Answers.Add(new Answer
-        //        {
-        //            Content = answerRequest.Content,
-        //            IsActive = answerRequest.IsActive
-        //        });
-        //    }
-        //}
-
-        //question.Content = request.Content;
-        //question.IsActive = request.IsActive;
-        //Entity.Update(question);
-        //await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<Result> DeleteQuestionAsync(Guid pollId, Guid questionId, CancellationToken cancellationToken)
+    public async Task<Result> DeleteQuestionAsync(string pollId, string questionId, CancellationToken cancellationToken)
     {
         var question = await _context.Set<Question>()
             .FirstOrDefaultAsync(x => x.Id == questionId 
@@ -191,7 +146,7 @@ public class QuestionService(
         return Result.Success();
     }
 
-    public async Task<Result> ToggleActiveStatusAsync(Guid pollId, Guid questionId, CancellationToken cancellationToken)
+    public async Task<Result> ToggleActiveStatusAsync(string pollId, string questionId, CancellationToken cancellationToken)
     {
         var question = await _context.Set<Question>()
             .FirstOrDefaultAsync(x => x.Id == questionId

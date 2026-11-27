@@ -1,4 +1,12 @@
-﻿namespace SurveyBasket.Infrastructure.Extensions
+﻿using Hangfire;
+using SurveyBasket.Application.Contracts.TemplateModels;
+using SurveyBasket.Application.Interfaces.NotificationService.Abstractions;
+using SurveyBasket.Infrastructure.Services.EmailService;
+using SurveyBasket.Infrastructure.Services.EmailService.Abstractions.Email;
+using SurveyBasket.Infrastructure.Services.EmailService.ConfirmationEmail;
+using SurveyBasket.Infrastructure.Services.NotificationService.Abstractions;
+
+namespace SurveyBasket.Infrastructure.Extensions
 {
     public static class DependencyInjection
     {
@@ -9,24 +17,44 @@
             services.AddIdentityServices();
             services.AddJwtConfig();
             services.AddServicesLifeTime();
-            services.AddJwtOptionsConfig();
+            services.AddHangfireServices(configuration);
         }
         private static IServiceCollection AddServicesLifeTime(this IServiceCollection services)
         {
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+            services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<INotificationSenderFactory, NotificationSenderFactory>();
+            services.AddScoped<IMessageBodyBuilderFactory, MessageBodyBuilderFactory>();
 
-            services.AddScoped<IApplicationDbContext , ApplicationDbContext>();
+            services.AddKeyedTransient
+                <INotificationSender, EmailNotificationSender>(NotificationChannel.Email);
 
-            services.AddHttpContextAccessor();
+            services.AddKeyedTransient<
+                IMessageBodyBuilder<ConfirmationEmailTemplateModel>,
+                ConfirmationEmailMessageBodyBuilder>(
+                (
+                    NotificationChannel.Email,
+                    NotificationMessageType.ConfirmationEmail,
+                    typeof(ConfirmationEmailTemplateModel)
+                ));
 
-            services.AddScoped<ICurrentUserService,
-                CurrentUserService>();
+            services.AddKeyedTransient<
+                IMessageBodyBuilder<NewPollEmailTemplateModel>,
+                NewPollEmailMessageBodyBuilder>(
+                (
+                    NotificationChannel.Email,
+                    NotificationMessageType.NewPoll,
+                    typeof(NewPollEmailTemplateModel)
+                ));
 
             services.AddScoped<AuditInterceptor>();
-
+            services.AddHttpContextAccessor();
             return services;
         }
-        private static IServiceCollection AddApplicationDbContext(this IServiceCollection services,IConfiguration configuration)
+        private static IServiceCollection AddApplicationDbContext(
+            this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
@@ -43,14 +71,12 @@
         {
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredLength = 6;
+                options.Password.RequiredLength = 8;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             return services;
         }
@@ -96,19 +122,22 @@
 
             return services;
         }
-        private static IServiceCollection AddJwtOptionsConfig(
-                 this IServiceCollection services)
+
+        private static IServiceCollection AddHangfireServices(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
-            services.AddSingleton<IValidator<JwtOptions>, JwtOptionsValidator>();
+            services.AddHangfire(config => config
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(
+                    configuration.GetConnectionString("HangfireConnection")));
 
-            services.AddSingleton<
-                IValidateOptions<JwtOptions>, JwtOptionsValidation>();
-
-            services.AddOptions<JwtOptions>()
-                .BindConfiguration(JwtOptions.SectionName)
-                .ValidateOnStart();
+            services.AddHangfireServer();
 
             return services;
         }
+
     }
 }

@@ -1,4 +1,9 @@
-﻿namespace Core.Mapping
+﻿using Mapster;
+using SurveyBasket.Application.Contracts.Answer;
+using SurveyBasket.Application.Contracts.Poll;
+using SurveyBasket.Application.Contracts.Question;
+
+namespace Core.Mapping
 {
     public class MappingConfigurations  : IRegister
     {
@@ -40,7 +45,7 @@
 
             config.NewConfig<RegisterRequest, ApplicationUser>()
                 .Map(dest=>dest.UserName , src => src.Email)
-                .TwoWays();                
+                .TwoWays();            
         }
     }
 }

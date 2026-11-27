@@ -5,7 +5,7 @@ namespace SurveyBasket.Domain.Models
         public string Content { get; set; } = default!;
         public bool IsActive { get; set; } = true;
 
-        public Guid QuestionId { get; set; }
+        public string QuestionId { get; set; } = default!;
         public Question Question { get; set; } = default!;
 
         public ICollection<VoteAnswer> VoteAnswers { get; set; } = new List<VoteAnswer>();

@@ -1,17 +1,21 @@
-﻿using SurveyBasket.Application.Errors;
+﻿using Hangfire;
+using SurveyBasket.Application.Contracts.Poll;
+using SurveyBasket.Application.Interfaces.NotificationService;
+using SurveyBasket.Domain.Interfaces;
 
 namespace SurveyBasket.Application.Services
 {
     public class PollService(IApplicationDbContext applicationDbContext
                             , ILogger<PollService> logger
-                            , IMapper mapper) : IPollService
+                            , IMapper mapper
+                            , IPollNotificationService pollNotification) : IPollService
     {
         private readonly IApplicationDbContext _Context = applicationDbContext;
         private readonly ILogger<PollService> _logger = logger;
         private readonly IMapper _mapper = mapper;
         private DbSet<Poll> entity => _Context.Set<Poll>();
 
-        public async Task<Result<PollResponse>> GetPollAsync(Guid id, CancellationToken cancellationToken)
+        public async Task<Result<PollResponse>> GetPollAsync(string id, CancellationToken cancellationToken)
         {
             var poll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -25,13 +29,11 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success<PollResponse>(response);
         }
-
         public async Task<IEnumerable<PollResponse>> ListPollsAsync(CancellationToken cancellationToken)
         {
             var polls = await entity.AsNoTracking().ToListAsync(cancellationToken);
             return _mapper.Map<IEnumerable<PollResponse>>(polls);
         }
-
         public async Task<Result<PollResponse>> CreatePollAsync(PollRequest request, CancellationToken cancellationToken)
         {
             var existingPoll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Title == request.Title, cancellationToken);
@@ -48,17 +50,16 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success<PollResponse>(_mapper.Map<PollResponse>(poll));
         }
-
-        public async Task<Result> UpdatePollAsync(Guid id, PollRequest request, CancellationToken cancellationToken)
+        public async Task<Result> UpdatePollAsync(string id, PollRequest request, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-            
+
             if (poll is null)
             {
                 _logger.LogError("Poll with id {Id} not found.", id);
-                return Result.Failure(error:PollErrors.PollNotFound);
+                return Result.Failure(error: PollErrors.PollNotFound);
             }
-           
+
             if (poll.Title != request.Title)
             {
                 var existingPoll = await entity.AsNoTracking().FirstOrDefaultAsync(x => x.Title == request.Title, cancellationToken);
@@ -74,8 +75,7 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success();
         }
-
-        public async Task<Result> DeletePollAsync(Guid id, CancellationToken cancellationToken)
+        public async Task<Result> DeletePollAsync(string id, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -91,8 +91,7 @@ namespace SurveyBasket.Application.Services
 
             return Result.Success();
         }
-
-        public async Task<Result> TogglePublishStatusAsync(Guid id, CancellationToken cancellationToken)
+        public async Task<Result> TogglePublishStatusAsync(string id, CancellationToken cancellationToken)
         {
             var poll = await entity.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -106,7 +105,12 @@ namespace SurveyBasket.Application.Services
             entity.Update(poll);
             await _Context.SaveChangesAsync(cancellationToken);
 
+            if (poll.IsPublished && poll.StartsAt!.Value.Date == DateTime.UtcNow.Date) 
+            {
+                BackgroundJob.Enqueue(() => pollNotification.SendNewPollNotificationAsync(poll.Id));
+            }
+
             return Result.Success();
-        }        
+        }
     }
 }

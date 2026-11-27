@@ -1,4 +1,6 @@
-﻿namespace SurveyBasket.Infrastructure.Data
+﻿using SurveyBasket.Domain.Interfaces;
+
+namespace SurveyBasket.Infrastructure.Data
 {
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions)
                             : IdentityDbContext<ApplicationUser>(dbContextOptions)
